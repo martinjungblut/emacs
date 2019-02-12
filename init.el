@@ -51,6 +51,26 @@
 ;;;; package management ;;;;
 
 
+;;;; my own functions ;;;;
+(defun kill-other-buffers ()
+  "Kill all other buffers."
+  (interactive)
+  (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
+  (message "Killed all other buffers!"))
+
+(defun go-to-buffer-running-subprocess (new-buffer-name command)
+  "Create a function that toggle switches to a buffer running a specified subprocess, powered by ansi-term."
+  `(lambda ()
+     (interactive)
+     (let ((unassociated-new-buffer-name (format "*%s*" ,new-buffer-name)))
+       (if (string-equal (buffer-name) unassociated-new-buffer-name)
+	   (previous-buffer)
+	 (if (get-buffer unassociated-new-buffer-name)
+	     (switch-to-buffer unassociated-new-buffer-name)
+	   (ansi-term ,command ,new-buffer-name))))))
+;;;; my own functions ;;;;
+
+
 ;;;; user interface and generic settings ;;;;
 ;; disable all menu bars
 (menu-bar-mode -1)
@@ -119,6 +139,9 @@
 ;; Python
 (elpy-enable)
 (setq elpy-rpc-python-command "python3")
+(add-hook 'python-mode-hook
+	  (lambda ()
+	    (global-set-key (kbd "s-p") (go-to-buffer-running-subprocess "python3" "/usr/bin/python3"))))
 
 ;; JavaScript
 (require 'js2-mode)
@@ -138,26 +161,6 @@
 
 (add-hook 'js2-mode-hook (lambda () (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
 ;;;; language specific ;;;;
-
-
-;;;; my own functions ;;;;
-(defun kill-other-buffers ()
-  "Kill all other buffers."
-  (interactive)
-  (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
-  (message "Killed all other buffers!"))
-
-(defun go-to-buffer-running-subprocess (new-buffer-name command)
-  "Create a function that toggle switches to a buffer running a specified subprocess, powered by ansi-term."
-  `(lambda ()
-     (interactive)
-     (let ((unassociated-new-buffer-name (format "*%s*" ,new-buffer-name)))
-       (if (string-equal (buffer-name) unassociated-new-buffer-name)
-	   (previous-buffer)
-	 (if (get-buffer unassociated-new-buffer-name)
-	     (switch-to-buffer unassociated-new-buffer-name)
-	   (ansi-term ,command ,new-buffer-name))))))
-;;;; my own functions ;;;;
 
 
 ;;;; key bindings ;;;;
