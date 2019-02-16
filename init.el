@@ -66,6 +66,10 @@
 (require 'ujelly-theme)
 (load-theme 'ujelly t)
 
+;; load a nice font
+(when (member "Inconsolata" (font-family-list))
+  (set-face-attribute 'default nil :font "Inconsolata"))
+
 ;; stop creating backup~ files
 (setq make-backup-files nil)
 
@@ -97,8 +101,8 @@
 (require 'smartparens-config)
 (smartparens-global-mode t)
 
-;; nlinum - enable line numbers
-(global-nlinum-mode t)
+;; display line numbers
+(global-display-line-numbers-mode)
 
 ;; which-key - interactively describe key bindings 
 (require 'which-key)
