@@ -8,6 +8,7 @@
 (add-to-list 'package-list 'elpy)
 (add-to-list 'package-list 'evil)
 (add-to-list 'package-list 'evil-surround)
+(add-to-list 'package-list 'f)
 (add-to-list 'package-list 'go-mode)
 (add-to-list 'package-list 'helm)
 (add-to-list 'package-list 'js2-mode)
@@ -49,26 +50,6 @@
   (unless (package-installed-p package)
     (package-install package)))
 ;;;; package management ;;;;
-
-
-;;;; my own functions ;;;;
-(defun kill-other-buffers ()
-  "Kill all other buffers."
-  (interactive)
-  (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
-  (message "Killed all other buffers!"))
-
-(defun go-to-buffer-running-subprocess (new-buffer-name command)
-  "Create a function that toggle switches to a buffer running a specified subprocess, powered by ansi-term."
-  `(lambda ()
-     (interactive)
-     (let ((unassociated-new-buffer-name (format "*%s*" ,new-buffer-name)))
-       (if (string-equal (buffer-name) unassociated-new-buffer-name)
-	   (previous-buffer)
-	 (if (get-buffer unassociated-new-buffer-name)
-	     (switch-to-buffer unassociated-new-buffer-name)
-	   (ansi-term ,command ,new-buffer-name))))))
-;;;; my own functions ;;;;
 
 
 ;;;; user interface and generic settings ;;;;
@@ -125,7 +106,40 @@
 
 ;; helm - incremental completion and selection narrowing framework
 (require 'helm)
+
+;; f.el - modern API for working with files and directories
+;; https://github.com/rejeep/f.el
+(require 'f)
 ;;;; general extensions ;;;;
+
+
+;;;; my own functions ;;;;
+(defun kill-other-buffers ()
+  "Kill all other buffers."
+  (interactive)
+  (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
+  (message "Killed all other buffers!"))
+
+(defun go-to-buffer-running-subprocess (new-buffer-name command)
+  "Create a function that toggle switches to a buffer running a specified subprocess, powered by ansi-term."
+  `(lambda ()
+     (interactive)
+     (let ((unassociated-new-buffer-name (format "*%s*" ,new-buffer-name)))
+       (if (string-equal (buffer-name) unassociated-new-buffer-name)
+	   (previous-buffer)
+	 (if (get-buffer unassociated-new-buffer-name)
+	     (switch-to-buffer unassociated-new-buffer-name)
+	   (ansi-term ,command ,new-buffer-name))))))
+
+(defun python-interpreter-locate (interpreter)
+  (let ((located-interpreter (car (f-glob (format "*/bin/%s" interpreter)))))
+    (if located-interpreter located-interpreter (format "/usr/bin/%s" interpreter))))
+
+(defun python-interpreter-run ()
+  (interactive)
+  (let ((interpreter (python-interpreter-locate "python3")))
+    (funcall (go-to-buffer-running-subprocess interpreter interpreter))))
+;;;; my own functions ;;;;
 
 
 ;;;; language specific ;;;;
@@ -141,7 +155,7 @@
 (setq elpy-rpc-python-command "python3")
 (add-hook 'python-mode-hook
 	  (lambda ()
-	    (global-set-key (kbd "s-p") (go-to-buffer-running-subprocess "python3" "/usr/bin/python3"))))
+	    (global-set-key (kbd "s-\\ e i") 'python-interpreter-run)))
 
 ;; JavaScript
 (require 'js2-mode)
@@ -167,7 +181,7 @@
 ;; general key bindings
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "s-x") 'helm-M-x)
-(global-set-key (kbd "s-q") 'keyboard-quit)
+(global-set-key (kbd "s-q") (lambda () (interactive) (keyboard-quit) (evil-normal-state)))
 (global-set-key (kbd "s-'") (go-to-buffer-running-subprocess "shell" "/bin/bash"))
 (global-set-key (kbd "s-.") 'narrow-to-region)
 (global-set-key (kbd "s-,") 'widen)
@@ -175,6 +189,7 @@
 (global-set-key (kbd "s-=") 'text-scale-adjust)
 (global-set-key (kbd "s-/") 'comment-dwim)
 (global-set-key (kbd "s-;") 'comment-dwim)
+(global-set-key (kbd "s-<return>") 'indent-region)
 (global-set-key (kbd "s-SPC") 'ace-jump-mode)
 (global-set-key (kbd "s-<") 'switch-to-prev-buffer)
 (global-set-key (kbd "s->") 'switch-to-next-buffer)
@@ -191,6 +206,9 @@
 (global-set-key (kbd "s-h a") 'apropos)
 (global-set-key (kbd "s-h b") 'describe-bindings)
 (global-set-key (kbd "s-h k") 'describe-key)
+(global-set-key (kbd "s-h f") 'describe-function)
+(global-set-key (kbd "s-h e") 'eval-expression)
+(global-set-key (kbd "s-h r") 'eval-region)
 
 ;; buffer key bindings
 (global-set-key (kbd "s-b l") 'helm-buffers-list)
