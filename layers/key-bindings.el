@@ -1,7 +1,7 @@
 ;; general key bindings
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "s-x") 'helm-M-x)
-(global-set-key (kbd "s-q") (lambda () (interactive) (keyboard-quit) (evil-normal-state)))
+(global-set-key (kbd "s-q") (lambda () (interactive) (evil-normal-state) (keyboard-escape-quit) (keyboard-quit)))
 (global-set-key (kbd "s-'") (go-to-buffer-running-subprocess "shell" "/bin/bash"))
 (global-set-key (kbd "s-.") 'narrow-to-region)
 (global-set-key (kbd "s-,") 'widen)
@@ -31,6 +31,7 @@
 (global-set-key (kbd "s-h r") 'eval-region)
 
 ;; buffer key bindings
+(global-set-key (kbd "s-b i") 'ibuffer)
 (global-set-key (kbd "s-b l") 'helm-buffers-list)
 (global-set-key (kbd "s-b k") 'kill-buffer)
 (global-set-key (kbd "s-b o") 'kill-other-buffers)

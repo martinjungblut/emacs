@@ -4,7 +4,10 @@
 (load "general-settings.el")
 (load "library.el")
 (load "key-bindings.el")
-(load "programming-languages.el")
+
+(load "lang/go.el")
+(load "lang/javascript.el")
+(load "lang/python.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
