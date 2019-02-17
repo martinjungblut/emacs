@@ -32,6 +32,13 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (company-quickhelp-mode)
 
+;; language server protocol (lsp) support
+(require 'lsp-mode)
+(require 'lsp-ui)
+(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+(require 'company-lsp)
+(push 'company-lsp company-backends)
+
 ;; ace-jump - easily jump anywhere across multiple windows and buffers
 (autoload 'ace-jump-mode "ace-jump-mode" "Emacs quick minor move mode" t)
 
