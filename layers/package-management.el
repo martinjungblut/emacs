@@ -9,6 +9,7 @@
 (add-to-list 'package-list 'evil)
 (add-to-list 'package-list 'evil-surround)
 (add-to-list 'package-list 'f)
+(add-to-list 'package-list 'flymd)
 (add-to-list 'package-list 'go-mode)
 (add-to-list 'package-list 'helm)
 (add-to-list 'package-list 'js2-mode)
@@ -32,7 +33,7 @@
 (add-to-list 'package-archives
 	     '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
-	     '("melpa" . "http://stable.melpa.org/packages/") t)
+	     '("melpa" . "http://melpa.org/packages/") t)
 
 ;; enable package management
 (require 'package)
