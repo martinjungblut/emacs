@@ -63,3 +63,7 @@
 ;; f.el - modern API for working with files and directories
 ;; https://github.com/rejeep/f.el
 (require 'f)
+
+;; powerline
+(require 'powerline)
+(powerline-default-theme)

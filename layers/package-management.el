@@ -19,6 +19,7 @@
 (add-to-list 'package-list 'lsp-ui)
 (add-to-list 'package-list 'magit)
 (add-to-list 'package-list 'markdown-mode)
+(add-to-list 'package-list 'powerline)
 (add-to-list 'package-list 'smartparens)
 (add-to-list 'package-list 'which-key)
 (add-to-list 'package-list 'xref-js2)

@@ -11,7 +11,8 @@
 
 (let ((company-go-file (substitute-env-vars "$GOPATH/src/github.com/mdempsky/gocode/emacs-company/company-go.el")))
   (if (not (file-exists-p company-go-file))
-      (user-error (format "company-go not found: %s" company-go-file))))
+      (user-error (format "company-go not found: %s" company-go-file))
+    (load company-go-file)))
 
 (defun my-go-hook ()
   (set (make-local-variable 'company-backends) '(company-go company-lsp))
