@@ -7,11 +7,7 @@
 (if (not (file-directory-p (getenv "GOPATH")))
     (user-error (format "GOPATH directory not found: %s" (getenv "GOPATH"))))
 
-(if (not (locate-file "gocode" exec-path))
-    (user-error "gocode not found in your exec-path."))
-
-(if (not (locate-file "bingo" exec-path))
-    (user-error "bingo not found in your exec-path."))
+(ensure-external-binaries-are-installed '("gocode" "bingo"))
 
 (let ((company-go-file (substitute-env-vars "$GOPATH/src/github.com/mdempsky/gocode/emacs-company/company-go.el")))
   (if (not (file-exists-p company-go-file))

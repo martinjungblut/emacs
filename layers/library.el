@@ -23,3 +23,12 @@
   (interactive)
   (let ((interpreter (python-interpreter-locate "python3")))
     (funcall (go-to-buffer-running-subprocess interpreter interpreter))))
+
+(defun ensure-external-binaries-are-installed (binaries)
+  "Ensure a list of binaries are installed, executable and in your exec-path."
+  (dolist (binary binaries)
+    (let ((absolute-binary-path (locate-file binary exec-path)))
+      (if (not absolute-binary-path)
+	  (user-error (format "External binary '%s' is not in your exec-path. Please install it." binary))
+	(if (not (file-executable-p absolute-binary-path))
+	    (user-error (format "External binary '%s' was found, but is not executable. Please chmod it." binary)))))))
