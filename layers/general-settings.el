@@ -39,6 +39,10 @@
 (require 'company-lsp)
 (push 'company-lsp company-backends)
 
+;; debug adapter protocol (dap) support
+(dap-mode 1)
+(dap-ui-mode 1)
+
 ;; ace-jump - easily jump anywhere across multiple windows and buffers
 (autoload 'ace-jump-mode "ace-jump-mode" "Emacs quick minor move mode" t)
 

@@ -15,7 +15,8 @@
     (load company-go-file)))
 
 (defun my-go-hook ()
-  (set (make-local-variable 'company-backends) '(company-go company-lsp))
+  (push 'company-go company-backends)
   (company-mode))
-(add-hook 'go-mode-hook 'my-go-hook)
+
 (add-hook 'go-mode-hook #'lsp)
+(add-hook 'go-mode-hook 'my-go-hook)
