@@ -8,6 +8,7 @@
 (add-to-list 'package-list 'discover)
 (add-to-list 'package-list 'elpy)
 (add-to-list 'package-list 'evil)
+(add-to-list 'package-list 'evil-escape)
 (add-to-list 'package-list 'evil-surround)
 (add-to-list 'package-list 'f)
 (add-to-list 'package-list 'flymd)

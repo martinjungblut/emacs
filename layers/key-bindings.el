@@ -1,7 +1,8 @@
 ;; general key bindings
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "s-x") 'helm-M-x)
-(global-set-key (kbd "s-q") (lambda () (interactive) (evil-normal-state) (keyboard-escape-quit) (keyboard-quit)))
+(global-set-key (kbd "s-q") 'evil-escape)
+(global-set-key (kbd "<escape>") 'evil-escape)
 (global-set-key (kbd "s-'") (go-to-buffer-running-subprocess "shell" "/bin/bash"))
 (global-set-key (kbd "s-.") 'narrow-to-region)
 (global-set-key (kbd "s-,") 'widen)
@@ -27,8 +28,11 @@
 (global-set-key (kbd "s-h b") 'describe-bindings)
 (global-set-key (kbd "s-h k") 'describe-key)
 (global-set-key (kbd "s-h f") 'describe-function)
-(global-set-key (kbd "s-h e") 'eval-expression)
-(global-set-key (kbd "s-h r") 'eval-region)
+
+;; eval
+(global-set-key (kbd "s-e e") 'eval-expression)
+(global-set-key (kbd "s-e r") 'eval-region)
+(global-set-key (kbd "s-e b") 'eval-buffer)
 
 ;; buffer key bindings
 (global-set-key (kbd "s-b i") 'ibuffer)
@@ -45,3 +49,6 @@
 
 ;; feature toggle key bindings
 (global-set-key (kbd "s-t s") 'global-whitespace-mode)
+
+;; magit/git key bindings
+(global-set-key (kbd "s-g .") 'magit)

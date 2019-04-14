@@ -5,7 +5,7 @@
 
 ;; start emacs on a new buffer
 (setq inhibit-splash-screen t)
-(switch-to-buffer "**")
+(switch-to-buffer "*scratch*")
 
 ;; load a nice colour theme
 (require 'kaolin-themes)
@@ -23,9 +23,11 @@
 
 ;; evil - vim emulation
 (require 'evil)
-(require 'evil-surround)
 (evil-mode 1)
+(require 'evil-surround)
 (global-evil-surround-mode 1)
+(require 'evil-escape)
+(evil-escape-mode)
 
 ;; company - modern auto-completion framework
 (require 'company)
@@ -71,3 +73,6 @@
 ;; powerline
 (require 'powerline)
 (powerline-default-theme)
+
+;; enable magit globally
+(global-magit-file-mode t)
