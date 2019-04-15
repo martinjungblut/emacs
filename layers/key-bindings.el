@@ -22,6 +22,10 @@
 (global-set-key (kbd "s-<down>") 'windmove-down)
 (global-set-key (kbd "s-<left>") 'windmove-left)
 (global-set-key (kbd "s-<right>") 'windmove-right)
+(global-set-key (kbd "s-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "s-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "s-C-<down>") 'shrink-window)
+(global-set-key (kbd "s-C-<up>") 'enlarge-window)
 
 ;; help key bindings
 (global-set-key (kbd "s-h a") 'apropos)

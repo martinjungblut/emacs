@@ -13,7 +13,7 @@
 
 ;; load a nice font
 (when (member "Inconsolata" (font-family-list))
-  (set-face-attribute 'default nil :font "Inconsolata" :height 120))
+  (set-face-attribute 'default nil :font "Inconsolata" :height 105))
 
 ;; stop creating backup~ files
 (setq make-backup-files nil)
