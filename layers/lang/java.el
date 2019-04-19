@@ -1,6 +1,7 @@
-(defun my-java-hook ()
-  (require 'lsp-java)
-  (require 'dap-java))
+(use-package lsp-java
+  :ensure t
+  :after lsp
+  :config (add-hook 'java-mode-hook 'lsp))
 
-(add-hook 'java-mode-hook #'lsp)
-(add-hook 'java-mode-hook 'my-java-hook)
+(use-package dap-java
+  :after (lsp-java))

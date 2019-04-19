@@ -9,11 +9,14 @@
 
 (ensure-external-binaries-are-installed '("gocode" "gopls"))
 
-(defun my-go-mode-hook ()
+(defun go-lsp-hook ()
   (lsp-register-client
    (make-lsp-client :new-connection (lsp-stdio-connection "gopls")
                     :major-modes '(go-mode)
                     :server-id 'gopls))
   (lsp))
 
-(add-hook 'go-mode-hook 'my-go-mode-hook)
+(use-package go-mode
+  :ensure t
+  :after lsp
+  :config (add-hook 'go-mode-hook 'go-lsp-hook))
