@@ -18,5 +18,5 @@
 
 (use-package go-mode
   :ensure t
-  :after lsp
+  :after lsp-mode
   :config (add-hook 'go-mode-hook 'go-lsp-hook))

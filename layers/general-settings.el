@@ -18,7 +18,7 @@
 
 ;; load a nice font
 (when (member "Inconsolata" (font-family-list))
-  (set-face-attribute 'default nil :font "Inconsolata" :height 110))
+  (set-face-attribute 'default nil :font "Inconsolata" :height 105))
 
 ;; load a nice colour theme
 (use-package kaolin-themes
