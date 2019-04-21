@@ -9,6 +9,7 @@
 (load "lang/java.el")
 (load "lang/javascript.el")
 (load "lang/python.el")
+(load "lang/plantuml.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -17,7 +18,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (evil-magit dap-mode lsp-java powerline flymd company-lsp lsp-ui kaolin-themes markdown-mode which-key smartparens magit js2-mode helm go-mode evil-surround evil elpy discover company-quickhelp company ace-jump-mode))))
+    (plantuml-mode evil-magit dap-mode lsp-java powerline flymd company-lsp lsp-ui kaolin-themes markdown-mode which-key smartparens magit js2-mode helm go-mode evil-surround evil elpy discover company-quickhelp company ace-jump-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
