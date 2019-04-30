@@ -33,7 +33,7 @@
 	(if (not (file-executable-p absolute-binary-path))
 	    (user-error (format "External binary '%s' was found, but is not executable. Please chmod it." binary)))))))
 
-(defun revert-all-no-confirm ()
+(defun revert-buffers-no-confirm ()
   "Revert all file buffers, without confirmation.
   Buffers visiting files that no longer exist are ignored.
   Files that are not readable (including do not exist) are ignored.

@@ -43,6 +43,7 @@
 (global-set-key (kbd "s-b l") 'helm-buffers-list)
 (global-set-key (kbd "s-b k") 'kill-buffer)
 (global-set-key (kbd "s-b o") 'kill-other-buffers)
+(global-set-key (kbd "s-b r") 'revert-buffers-no-confirm)
 
 ;; window key bindings
 (global-set-key (kbd "s-w k") 'delete-window)
