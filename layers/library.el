@@ -32,3 +32,16 @@
 	  (user-error (format "External binary '%s' is not in your exec-path. Please install it." binary))
 	(if (not (file-executable-p absolute-binary-path))
 	    (user-error (format "External binary '%s' was found, but is not executable. Please chmod it." binary)))))))
+
+(defun revert-all-no-confirm ()
+  "Revert all file buffers, without confirmation.
+  Buffers visiting files that no longer exist are ignored.
+  Files that are not readable (including do not exist) are ignored.
+  Other errors while reverting a buffer are reported only as messages."
+  (interactive)
+  (let (file)
+    (dolist (buf  (buffer-list))
+      (setq file  (buffer-file-name buf))
+      (when (and file  (file-readable-p file))
+        (with-current-buffer buf
+          (with-demoted-errors "Error: %S" (revert-buffer t t)))))))
