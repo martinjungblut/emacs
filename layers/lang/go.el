@@ -16,7 +16,11 @@
                     :server-id 'gopls))
   (lsp))
 
+(defun go-mode-before-save-hook ()
+  (call-in-all-buffers-in-major-mode "go-mode" 'gofmt))
+
 (use-package go-mode
   :ensure t
   :after lsp-mode
-  :config (add-hook 'go-mode-hook 'go-lsp-hook))
+  :config (add-hook 'go-mode-hook 'go-lsp-hook)
+          (add-hook 'before-save-hook 'go-mode-before-save-hook))
