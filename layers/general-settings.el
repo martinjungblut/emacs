@@ -88,6 +88,10 @@
 (use-package helm
   :ensure t)
 
+(use-package helm-swoop
+  :ensure t
+  :after helm)
+
 ;; f.el - modern API for working with files and directories
 ;; https://github.com/rejeep/f.el
 (use-package f
