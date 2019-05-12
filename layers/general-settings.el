@@ -18,7 +18,7 @@
 
 ;; load a nice font
 (when (member "Inconsolata" (font-family-list))
-  (set-face-attribute 'default nil :font "Inconsolata" :height 105))
+  (set-face-attribute 'default nil :font "Inconsolata" :height 110))
 
 ;; load a nice colour theme
 (use-package kaolin-themes
@@ -88,9 +88,14 @@
 (use-package helm
   :ensure t)
 
-(use-package helm-swoop
+;; wgrep - powerful searching and replacing
+(use-package wgrep
+  :ensure t)
+
+;; wgrep-helm - integrate wgrep and helm
+(use-package wgrep-helm
   :ensure t
-  :after helm)
+  :after (helm wgrep))
 
 ;; f.el - modern API for working with files and directories
 ;; https://github.com/rejeep/f.el

@@ -4,6 +4,7 @@
 (load "library.el")
 (load "general-settings.el")
 (load "key-bindings.el")
+(load "search-and-replace.el")
 
 (load "lang/go.el")
 (load "lang/java.el")
