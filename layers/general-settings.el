@@ -23,7 +23,7 @@
 ;; load a nice colour theme
 (use-package kaolin-themes
   :ensure t
-  :config (load-theme 'kaolin-eclipse t))
+  :config (load-theme 'kaolin-ocean t))
 
 ;; evil - vim emulation
 (use-package evil
