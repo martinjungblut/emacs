@@ -53,7 +53,7 @@
 (global-set-key (kbd "s-w o") 'delete-other-windows)
 
 ;; navigation/search/jump key bindings
-(global-set-key (kbd "s-f f") 'helm-find-files)
+(global-set-key (kbd "s-f f") 'helm-projectile-find-file)
 
 ;; search and replace
 (global-set-key (kbd "s-g s") 'search-and-replace--start)
@@ -61,6 +61,7 @@
 
 ;; feature toggle key bindings
 (global-set-key (kbd "s-t s") 'global-whitespace-mode)
+(define-key projectile-mode-map (kbd "s-t p") 'projectile-command-map)
 
 ;; magit/git key bindings
 (global-set-key (kbd "s-g .") 'magit)
