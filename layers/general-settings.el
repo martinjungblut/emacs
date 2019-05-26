@@ -88,6 +88,11 @@
 (use-package helm
   :ensure t)
 
+;; helm-swoop
+(use-package helm-swoop
+  :ensure t
+  :after helm)
+
 ;; wgrep - powerful searching and replacing
 (use-package wgrep
   :ensure t)
