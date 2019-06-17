@@ -4,6 +4,20 @@
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
   (message "Killed all other buffers!"))
 
+(defun font-size-increase ()
+  "Increase font size."
+  (interactive)
+  (let ((new-font-size (+ (face-attribute 'default :height) 5)))
+    (set-face-attribute 'default nil :height new-font-size)
+    (message (format "+ New font size: %d" new-font-size))))
+
+(defun font-size-decrease ()
+  "Decrease font size."
+  (interactive)
+  (let ((new-font-size (- (face-attribute 'default :height) 5)))
+    (set-face-attribute 'default nil :height new-font-size)
+    (message (format "- New font size: %d" new-font-size))))
+
 (defun go-to-buffer-running-subprocess (new-buffer-name command)
   "Create a function that toggle switches to a buffer running a specified subprocess, powered by ansi-term."
   `(lambda ()
