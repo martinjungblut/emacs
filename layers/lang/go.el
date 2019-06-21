@@ -7,13 +7,13 @@
 (if (not (file-directory-p (getenv "GOPATH")))
     (user-error (format "GOPATH directory not found: %s" (getenv "GOPATH"))))
 
-(ensure-external-binaries-are-installed '("gocode" "gopls"))
+(ensure-external-binaries-are-installed '("gocode" "godoc" "go-langserver"))
 
 (defun go-lsp-hook ()
   (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection "gopls")
+   (make-lsp-client :new-connection (lsp-stdio-connection "go-langserver")
                     :major-modes '(go-mode)
-                    :server-id 'gopls))
+                    :server-id 'go-langserver))
   (lsp))
 
 (defun go-mode-before-save-hook ()
