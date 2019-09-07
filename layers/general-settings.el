@@ -17,8 +17,8 @@
 (global-display-line-numbers-mode)
 
 ;; load a nice font
-(when (member "Inconsolata" (font-family-list))
-  (set-face-attribute 'default nil :font "Inconsolata" :height 110))
+(when (member "Borg Sans Mono" (font-family-list))
+  (set-face-attribute 'default nil :font "Borg Sans Mono" :height 100))
 
 ;; load a nice colour theme
 (use-package kaolin-themes

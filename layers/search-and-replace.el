@@ -1,3 +1,5 @@
+(ensure-external-binaries-are-installed '("ag"))
+
 (defmacro search-and-replace--with-buffer (&rest body)
   `(let ((search-and-replace--buffer-name "*hgrep*"))
     (if (get-buffer search-and-replace--buffer-name)
@@ -11,6 +13,10 @@
   (helm-do-grep-ag arg)
   (search-and-replace--with-buffer
    (wgrep-change-to-wgrep-mode)))
+
+(defun search-and-replace--toggle-buffer ()
+  (interactive)
+  (helm-grep-run-save-buffer))
 
 (defun search-and-replace--commit ()
   (interactive)

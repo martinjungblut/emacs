@@ -57,6 +57,7 @@
 
 ;; search and replace
 (global-set-key (kbd "s-g s") 'search-and-replace--start)
+(global-set-key (kbd "s-g SPC") 'search-and-replace--toggle-buffer)
 (global-set-key (kbd "s-g c") 'search-and-replace--commit)
 
 ;; feature toggle key bindings

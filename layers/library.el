@@ -1,6 +1,7 @@
 (defun kill-other-buffers ()
   "Kill all other buffers."
   (interactive)
+  (switch-to-buffer "*scratch*")
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
   (message "Killed all other buffers!"))
 
