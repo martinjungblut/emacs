@@ -79,6 +79,11 @@
   :ensure t
   :config (smartparens-global-mode t))
 
+;; smart-mode-line
+(use-package smart-mode-line
+  :ensure t
+  :config (sml/setup))
+
 ;; which-key - interactively describe key bindings
 (use-package which-key
   :ensure t
