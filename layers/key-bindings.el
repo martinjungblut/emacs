@@ -11,6 +11,8 @@
 (global-set-key (kbd "s-;") 'comment-dwim)
 (global-set-key (kbd "s-<return>") 'indent-region)
 (global-set-key (kbd "s-SPC") 'ace-jump-mode)
+(global-set-key (kbd "C-<up>") 'move-line-up)
+(global-set-key (kbd "C-<down>") 'move-line-down)
 
 ;; help key bindings
 (global-set-key (kbd "s-h a") 'apropos)
