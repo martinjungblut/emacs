@@ -3,10 +3,8 @@
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 
-;; stop creating backup~ files
+;; stop creating backup~ and #autosave# files
 (setq make-backup-files nil)
-
-;; stop creating #autosave# files
 (setq auto-save-default nil)
 
 ;; start emacs on a new buffer
@@ -61,8 +59,7 @@
 (use-package dap-mode
   :ensure t
   :after lsp-mode
-  :config (dap-mode t)
-          (dap-ui-mode t))
+  :config (dap-mode t) (dap-ui-mode t))
 
 ;; ace-jump - easily jump anywhere across multiple windows and buffers
 (use-package ace-jump-mode
@@ -146,3 +143,8 @@
   :ensure t
   :after yaml-mode
   :config (add-hook 'yaml-mode-hook '(lambda () (ansible 1))))
+
+;; drag-stuff - move text around easily
+(use-package drag-stuff
+  :ensure t
+  :config (drag-stuff-global-mode 1))

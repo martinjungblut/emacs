@@ -11,8 +11,10 @@
 (global-set-key (kbd "s-;") 'comment-dwim)
 (global-set-key (kbd "s-<return>") 'indent-region)
 (global-set-key (kbd "s-SPC") 'ace-jump-mode)
-(global-set-key (kbd "C-<up>") 'move-line-up)
-(global-set-key (kbd "C-<down>") 'move-line-down)
+(global-set-key (kbd "C-<up>") 'drag-stuff-up)
+(global-set-key (kbd "C-<down>") 'drag-stuff-down)
+(global-set-key (kbd "C-<left>") 'drag-stuff-left)
+(global-set-key (kbd "C-<right>") 'drag-right-stuff)
 
 ;; help key bindings
 (global-set-key (kbd "s-h a") 'apropos)
@@ -33,6 +35,7 @@
 (global-set-key (kbd "s-b l") 'helm-buffers-list)
 (global-set-key (kbd "s-b k") 'kill-buffer)
 (global-set-key (kbd "s-b o") 'kill-other-buffers)
+(global-set-key (kbd "s-b a") 'kill-all-buffers)
 (global-set-key (kbd "s-b r") 'revert-buffers-no-confirm)
 
 ;; window key bindings
@@ -56,6 +59,7 @@
 
 ;; navigation/search/jump key bindings
 (global-set-key (kbd "s-f f") 'helm-projectile-find-file)
+(global-set-key (kbd "s-f a") 'helm-find-files)
 
 ;; search and replace
 (global-set-key (kbd "s-g s") 'search-and-replace--start)
@@ -68,3 +72,5 @@
 
 ;; magit/git key bindings
 (global-set-key (kbd "s-g .") 'magit)
+(global-set-key (kbd "s-g b") 'magit-blame)
+(global-set-key (kbd "s-g k") 'magit-run-gitk)
