@@ -60,6 +60,7 @@
 ;; navigation/search/jump key bindings
 (global-set-key (kbd "s-f f") 'helm-projectile-find-file)
 (global-set-key (kbd "s-f a") 'helm-find-files)
+(global-set-key (kbd "s-f s") 'helm-multi-swoop-projectile)
 
 ;; search and replace
 (global-set-key (kbd "s-g s") 'search-and-replace--start)
@@ -69,6 +70,9 @@
 ;; feature toggle key bindings
 (global-set-key (kbd "s-t s") 'global-whitespace-mode)
 (define-key projectile-mode-map (kbd "s-t p") 'projectile-command-map)
+(global-set-key (kbd "s-t f ]") 'hs-hide-all)
+(global-set-key (kbd "s-t f [") 'hs-show-all)
+(global-set-key (kbd "s-t f SPC") 'hs-toggle-hiding)
 
 ;; magit/git key bindings
 (global-set-key (kbd "s-g .") 'magit)

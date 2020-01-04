@@ -18,6 +18,9 @@
 (when (member "Borg Sans Mono" (font-family-list))
   (set-face-attribute 'default nil :font "Borg Sans Mono" :height 100))
 
+;; hideshow
+(add-hook 'prog-mode-hook #'hs-minor-mode)
+
 ;; load a nice colour theme
 (use-package kaolin-themes
   :ensure t
