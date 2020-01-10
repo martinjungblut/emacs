@@ -7,7 +7,7 @@
 (if (not (file-directory-p (getenv "GOPATH")))
     (user-error (format "GOPATH directory not found: %s" (getenv "GOPATH"))))
 
-(ensure-external-binaries-are-installed '("gocode" "godoc" "gopls"))
+(ensure-external-binaries-are-installed '("gocode" "godoc" "gopls" "godoctor"))
 
 (defun go-lsp-hook ()
   (lsp-register-client
@@ -24,3 +24,7 @@
   :after lsp-mode
   :config (add-hook 'go-mode-hook 'go-lsp-hook)
           (add-hook 'before-save-hook 'go-mode-before-save-hook))
+
+(use-package godoctor
+  :ensure t
+  :after go-mode)

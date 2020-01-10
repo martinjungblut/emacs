@@ -60,7 +60,7 @@
 ;; navigation/search/jump key bindings
 (global-set-key (kbd "s-f f") 'helm-projectile-find-file)
 (global-set-key (kbd "s-f a") 'helm-find-files)
-(global-set-key (kbd "s-f s") 'helm-multi-swoop-projectile)
+(global-set-key (kbd "s-f s") 'helm-projectile-grep)
 
 ;; search and replace
 (global-set-key (kbd "s-g s") 'search-and-replace--start)
