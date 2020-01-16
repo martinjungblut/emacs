@@ -1,7 +1,12 @@
+(defun js-set-indent-options ()
+  (setq js-indent-level 2)
+  (setq indent-tabs-mode nil))
+
 (use-package js2-mode
   :ensure t
   :config (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-          (add-hook 'js2-mode-hook #'js2-imenu-extras-mode))
+          (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
+          (add-hook 'js2-mode-hook 'js-set-indent-options))
 
 (use-package js2-refactor
   :ensure t

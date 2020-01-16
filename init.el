@@ -7,10 +7,10 @@
 
 (load "features/search-and-replace.el")
 
-(load "lang/go.el")
-(load "lang/java.el")
 (load "lang/javascript.el")
 (load "lang/python.el")
+(load "lang/go.el")
+(load "lang/java.el")
 (load "lang/plantuml.el")
 
 (custom-set-variables
