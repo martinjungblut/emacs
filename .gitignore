@@ -4,3 +4,5 @@
 !init.el
 !layers
 !layers/**
+!extra-deps
+!extra-deps/**
