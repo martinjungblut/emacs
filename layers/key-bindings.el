@@ -14,7 +14,7 @@
 (global-set-key (kbd "C-<up>") 'drag-stuff-up)
 (global-set-key (kbd "C-<down>") 'drag-stuff-down)
 (global-set-key (kbd "C-<left>") 'drag-stuff-left)
-(global-set-key (kbd "C-<right>") 'drag-right-stuff)
+(global-set-key (kbd "C-<right>") 'drag-stuff-right)
 
 ;; help key bindings
 (global-set-key (kbd "s-h a") 'apropos)
