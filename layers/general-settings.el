@@ -15,8 +15,8 @@
 (global-display-line-numbers-mode)
 
 ;; load a nice font
-(when (member "Borg Sans Mono" (font-family-list))
-  (set-face-attribute 'default nil :font "Borg Sans Mono" :height 100))
+(when (member "Hack" (font-family-list))
+  (set-face-attribute 'default nil :font "Hack" :height 100))
 
 ;; hideshow
 (add-hook 'prog-mode-hook #'hs-minor-mode)
