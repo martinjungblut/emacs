@@ -26,10 +26,10 @@
     (message (format "- New font size: %d" new-font-size))))
 
 (defun font-size-default ()
-  "Set font size to its default value: 100."
+  "Set font size to its default value: 110."
   (interactive)
-  (set-face-attribute 'default nil :height 100)
-  (message (format "- New font size: %d" 100)))
+  (set-face-attribute 'default nil :height 110)
+  (message (format "- New font size: %d" 110)))
 
 (defun evaluate-region ()
   (interactive)
@@ -52,15 +52,6 @@
          (if (get-buffer unassociated-new-buffer-name)
              (switch-to-buffer unassociated-new-buffer-name)
            (ansi-term ,command ,new-buffer-name))))))
-
-(defun python-interpreter-locate (interpreter)
-  (let ((located-interpreter (car (f-glob (format "*/bin/%s" interpreter)))))
-    (if located-interpreter located-interpreter (format "/usr/bin/%s" interpreter))))
-
-(defun python-interpreter-run ()
-  (interactive)
-  (let ((interpreter (python-interpreter-locate "python3")))
-    (funcall (go-to-buffer-running-subprocess interpreter interpreter))))
 
 (defun ensure-external-binaries-are-installed (binaries)
   "Ensure a list of binaries are installed, executable and in your exec-path."

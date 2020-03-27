@@ -16,7 +16,7 @@
 
 ;; load a nice font
 (when (member "Hack" (font-family-list))
-  (set-face-attribute 'default nil :font "Hack" :height 100))
+  (set-face-attribute 'default nil :font "Hack" :height 110))
 
 ;; hideshow
 (add-hook 'prog-mode-hook #'hs-minor-mode)
