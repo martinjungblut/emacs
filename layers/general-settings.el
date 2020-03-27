@@ -165,4 +165,4 @@
   :ensure t
   :config (progn
 	    (setq highlight-symbol-idle-delay 0.3)
-	    (highlight-symbol-mode t)))
+	    (add-hook 'prog-mode-hook #'highlight-symbol-mode)))
