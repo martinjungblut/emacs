@@ -13,16 +13,19 @@
     (funcall (go-to-buffer-running-subprocess interpreter interpreter))))
 
 (defun python-get-pwd-pythonpath ()
-  (format "%s:%s"
-	  default-directory
-	  (shell-command-to-string "$SHELL --login -c 'echo -n $PYTHONPATH'")))
+  (let ((current-pythonpath (shell-command-to-string "$SHELL --login -c 'echo -n $PYTHONPATH'")))
+    (if (not (cl-search (projectile-project-root) current-pythonpath))
+	(format "%s:%s" (projectile-project-root) current-pythonpath))))
 
 (defun python-elpy-hook ()
   (let ((interpreter (python-locate-interpreter "python3"))
-	(virtualenv-directory (python-locate-virtualenv-directory "python3")))
-    (message "Adding $PWD to $PYTHONPATH.")
-    (setenv "PYTHONPATH" (python-get-pwd-pythonpath))
-    (message "New PYTHONPATH: %s" (getenv "PYTHONPATH"))
+	(virtualenv-directory (python-locate-virtualenv-directory "python3"))
+	(new-pythonpath (python-get-pwd-pythonpath)))
+    (if new-pythonpath
+	(progn
+	  (message "Adding project root to PYTHONPATH.")
+	  (setenv "PYTHONPATH" new-pythonpath)
+	  (message "New PYTHONPATH: %s" (getenv "PYTHONPATH"))))
 
     (message "Python Elpy: Using the following interpreter: %s" interpreter)
     (setq elpy-rpc-python-command interpreter)
