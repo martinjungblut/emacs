@@ -159,3 +159,10 @@
   :hook ((typescript-mode . tide-setup)
          (typescript-mode . tide-hl-identifier-mode)
          (before-save . tide-format-before-save)))
+
+;; hightlight symbol at point
+(use-package highlight-symbol
+  :ensure t
+  :config (progn
+	    (setq highlight-symbol-idle-delay 0.3)
+	    (highlight-symbol-mode t)))
