@@ -7,6 +7,7 @@
 (global-set-key (kbd "s-,") 'widen)
 (global-set-key (kbd "s--") 'font-size-decrease)
 (global-set-key (kbd "s-=") 'font-size-increase)
+(global-set-key (kbd "s-0") 'font-size-default)
 (global-set-key (kbd "s-/") 'comment-dwim)
 (global-set-key (kbd "s-;") 'comment-dwim)
 (global-set-key (kbd "s-<return>") 'indent-region)
@@ -24,8 +25,8 @@
 
 ;; eval
 (global-set-key (kbd "s-e e") 'eval-expression)
-(global-set-key (kbd "s-e r") 'eval-region)
-(global-set-key (kbd "s-e b") 'eval-buffer)
+(global-set-key (kbd "s-e r") 'evaluate-region)
+(global-set-key (kbd "s-e b") 'evaluate-buffer)
 
 ;; buffer key bindings
 (global-set-key (kbd "s-'") (go-to-buffer-running-subprocess "shell" "/bin/bash"))

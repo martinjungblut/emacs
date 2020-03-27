@@ -25,6 +25,23 @@
     (set-face-attribute 'default nil :height new-font-size)
     (message (format "- New font size: %d" new-font-size))))
 
+(defun font-size-default ()
+  "Set font size to its default value: 100."
+  (interactive)
+  (set-face-attribute 'default nil :height 100)
+  (message (format "- New font size: %d" 100)))
+
+(defun evaluate-region ()
+  (interactive)
+  (when (region-active-p)
+    (eval-region (region-beginning) (region-end))
+    (message "Region evaluated.")))
+
+(defun evaluate-buffer ()
+  (interactive)
+  (eval-buffer)
+  (message "Buffer evaluated."))
+
 (defun go-to-buffer-running-subprocess (new-buffer-name command)
   "Create a function that toggle switches to a buffer running a specified subprocess, powered by ansi-term."
   `(lambda ()
