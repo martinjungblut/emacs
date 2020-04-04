@@ -1,5 +1,5 @@
 (defun python-locate-interpreter (interpreter)
-  (let ((located-interpreter (car (f-glob (format "*/bin/%s" interpreter)))))
+  (let ((located-interpreter (car (f-glob (format "%s/*/bin/%s" (projectile-project-root) interpreter)))))
     (if located-interpreter located-interpreter (format "/usr/bin/%s" interpreter))))
 
 (defun python-locate-virtualenv-directory (interpreter)

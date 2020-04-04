@@ -22,9 +22,9 @@
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
 ;; load a nice colour theme
-(use-package kaolin-themes
+(use-package doom-themes
   :ensure t
-  :config (load-theme 'kaolin-bubblegum t))
+  :config (load-theme 'doom-moonlight t))
 
 ;; evil - vim emulation
 (use-package evil
@@ -82,6 +82,7 @@
 ;; smart-mode-line
 (use-package smart-mode-line
   :ensure t
+  :init (setq sml/no-confirm-load-theme t)
   :config (sml/setup))
 
 ;; which-key - interactively describe key bindings
