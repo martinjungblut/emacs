@@ -24,7 +24,7 @@
 ;; load a nice colour theme
 (use-package doom-themes
   :ensure t
-  :config (load-theme 'doom-moonlight t))
+  :config (load-theme 'doom-vibrant t))
 
 ;; evil - vim emulation
 (use-package evil
