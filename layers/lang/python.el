@@ -1,15 +1,15 @@
-(defun python-locate-interpreter (interpreter fallback-interpreter)
-  (let ((located-interpreter (car (f-glob (format "%s/*/bin/%s" (projectile-project-root) interpreter)))))
-    (if located-interpreter located-interpreter (format "/usr/bin/%s" fallback-interpreter))))
+(defun python-locate-interpreter ()
+  (let ((located-interpreter (car (f-glob (format "%s/*/bin/%s" (projectile-project-root) "python")))))
+    (if located-interpreter located-interpreter "/usr/bin/python3")))
 
-(defun python-locate-virtualenv-directory (interpreter fallback-interpreter)
-  (let ((found (python-locate-interpreter interpreter fallback-interpreter)))
+(defun python-locate-virtualenv-directory ()
+  (let ((found (python-locate-interpreter)))
     (if (and found (not (cl-search "/usr/bin" found)))
 	(f-dirname (f-dirname found)))))
 
 (defun python-interpreter-run ()
   (interactive)
-  (let ((interpreter (python-locate-interpreter "python" "python3")))
+  (let ((interpreter (python-locate-interpreter)))
     (funcall (go-to-buffer-running-subprocess interpreter interpreter))))
 
 (defun python-get-pwd-pythonpath ()
@@ -18,8 +18,8 @@
 	(format "%s:%s" (projectile-project-root) current-pythonpath))))
 
 (defun python-elpy-hook ()
-  (let ((interpreter (python-locate-interpreter "python" "python3"))
-	(virtualenv-directory (python-locate-virtualenv-directory "python" "python3"))
+  (let ((interpreter (python-locate-interpreter))
+	(virtualenv-directory (python-locate-virtualenv-directory))
 	(new-pythonpath (python-get-pwd-pythonpath)))
     (if new-pythonpath
 	(progn
