@@ -15,8 +15,8 @@
 (global-display-line-numbers-mode)
 
 ;; load a nice font
-(when (member "Hack" (font-family-list))
-  (set-face-attribute 'default nil :font "Hack" :height 110))
+(when (member "Source Code Pro" (font-family-list))
+  (set-face-attribute 'default nil :font "Source Code Pro" :height 110))
 
 ;; hideshow
 (add-hook 'prog-mode-hook #'hs-minor-mode)
