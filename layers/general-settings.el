@@ -15,8 +15,8 @@
 (global-display-line-numbers-mode)
 
 ;; load a nice font
-(when (member "Source Code Pro" (font-family-list))
-  (set-face-attribute 'default nil :font "Source Code Pro" :height 110))
+(when (member "Ubuntu Mono" (font-family-list))
+  (set-face-attribute 'default nil :font "Ubuntu Mono" :height 110))
 
 ;; hideshow
 (add-hook 'prog-mode-hook #'hs-minor-mode)
@@ -24,7 +24,7 @@
 ;; load a nice colour theme
 (use-package doom-themes
   :ensure t
-  :config (load-theme 'doom-acario-light t))
+  :config (load-theme 'doom-one t))
 
 ;; evil - vim emulation
 (use-package evil
@@ -167,3 +167,6 @@
   :config (progn
 	    (setq highlight-symbol-idle-delay 0.3)
 	    (add-hook 'prog-mode-hook #'highlight-symbol-mode)))
+
+(use-package protobuf-mode
+  :ensure t)
