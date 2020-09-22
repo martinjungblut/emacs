@@ -19,10 +19,14 @@
 (defun go-mode-before-save-hook ()
   (call-in-all-buffers-in-major-mode "go-mode" 'gofmt))
 
+(defun go-company-hook ()
+  (set (make-local-variable 'company-backends) '(company-capf)))
+
 (use-package go-mode
   :ensure t
   :after lsp-mode
   :config (add-hook 'go-mode-hook 'go-lsp-hook)
+          (add-hook 'go-mode-hook 'go-company-hook)
           (add-hook 'before-save-hook 'go-mode-before-save-hook))
 
 (use-package godoctor

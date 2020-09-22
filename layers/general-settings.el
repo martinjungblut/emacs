@@ -55,10 +55,6 @@
   :ensure t
   :after lsp-mode
   :config (add-hook 'lsp-mode-hook 'lsp-ui-mode))
-(use-package company-lsp
-  :ensure t
-  :after (:all lsp-mode company)
-  :config (push 'company-lsp company-backends))
 (use-package dap-mode
   :ensure t
   :after lsp-mode
@@ -170,3 +166,7 @@
 
 (use-package protobuf-mode
   :ensure t)
+
+(use-package flycheck
+  :ensure t
+  :config (add-hook 'after-init-hook 'global-flycheck-mode))
