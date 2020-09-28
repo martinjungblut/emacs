@@ -14,6 +14,8 @@
 ;; display line numbers
 (global-display-line-numbers-mode)
 
+(setq-default tab-width 4)
+
 ;; load a nice font
 (when (member "Ubuntu Mono" (font-family-list))
   (set-face-attribute 'default nil :font "Ubuntu Mono" :height 110))
@@ -22,9 +24,9 @@
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
 ;; load a nice colour theme
-(use-package doom-themes
+(use-package gruvbox-theme
   :ensure t
-  :config (load-theme 'doom-one t))
+  :config (load-theme 'gruvbox-dark-hard t))
 
 ;; evil - vim emulation
 (use-package evil
