@@ -7,7 +7,8 @@
 (if (not (file-directory-p (getenv "GOPATH")))
     (user-error (format "GOPATH directory not found: %s" (getenv "GOPATH"))))
 
-(ensure-external-binaries-are-installed '("gocode" "godoc" "gopls" "godoctor"))
+;; nodejs is required by dap-go
+(ensure-external-binaries-are-installed '("node"))
 
 (defun go-lsp-hook ()
   (lsp-register-client
@@ -16,7 +17,12 @@
                     :server-id 'gopls))
   (lsp))
 
-(defun go-mode-before-save-hook ()
+(defun go-dap-hook ()
+  (progn
+	(require 'dap-go)
+	(dap-go-setup)))
+
+(defun go-before-save-hook ()
   (call-in-all-buffers-in-major-mode "go-mode" 'gofmt))
 
 (defun go-company-hook ()
@@ -24,10 +30,11 @@
 
 (use-package go-mode
   :ensure t
-  :after lsp-mode
+  :after (lsp-mode dap-mode)
   :config (add-hook 'go-mode-hook 'go-lsp-hook)
+          (add-hook 'go-mode-hook 'go-dap-hook)
           (add-hook 'go-mode-hook 'go-company-hook)
-          (add-hook 'before-save-hook 'go-mode-before-save-hook))
+          (add-hook 'before-save-hook 'go-before-save-hook))
 
 (use-package godoctor
   :ensure t

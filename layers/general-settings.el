@@ -24,9 +24,9 @@
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
 ;; load a nice colour theme
-(use-package gruvbox-theme
+(use-package doom-themes
   :ensure t
-  :config (load-theme 'gruvbox-dark-hard t))
+  :config (load-theme 'doom-moonlight t))
 
 ;; evil - vim emulation
 (use-package evil
@@ -60,7 +60,8 @@
 (use-package dap-mode
   :ensure t
   :after lsp-mode
-  :config (dap-mode t) (dap-ui-mode t))
+  :config (dap-mode t)
+          (dap-ui-mode t))
 
 ;; ace-jump - easily jump anywhere across multiple windows and buffers
 (use-package ace-jump-mode
@@ -163,8 +164,8 @@
 (use-package highlight-symbol
   :ensure t
   :config (progn
-	    (setq highlight-symbol-idle-delay 0.3)
-	    (add-hook 'prog-mode-hook #'highlight-symbol-mode)))
+        (setq highlight-symbol-idle-delay 0.3)
+        (add-hook 'prog-mode-hook #'highlight-symbol-mode)))
 
 (use-package protobuf-mode
   :ensure t)
