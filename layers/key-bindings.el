@@ -29,7 +29,7 @@
 (global-set-key (kbd "s-e b") 'evaluate-buffer)
 
 ;; buffer key bindings
-(global-set-key (kbd "s-'") (go-to-buffer-running-subprocess "shell" "/bin/bash"))
+(global-set-key (kbd "s-'") (go-to-buffer-running-subprocess "bash"))
 (global-set-key (kbd "s-<") 'switch-to-prev-buffer)
 (global-set-key (kbd "s->") 'switch-to-next-buffer)
 (global-set-key (kbd "s-b i") 'ibuffer)

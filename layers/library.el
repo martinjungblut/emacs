@@ -42,16 +42,16 @@
   (eval-buffer)
   (message "Buffer evaluated."))
 
-(defun go-to-buffer-running-subprocess (new-buffer-name command)
+(defun go-to-buffer-running-subprocess (command)
   "Create a function that toggle switches to a buffer running a specified subprocess, powered by ansi-term."
   `(lambda ()
      (interactive)
-     (let ((unassociated-new-buffer-name (format "*%s*" ,new-buffer-name)))
+     (let ((unassociated-new-buffer-name (format "*%s*" ,command)))
        (if (string-equal (buffer-name) unassociated-new-buffer-name)
            (previous-buffer)
          (if (get-buffer unassociated-new-buffer-name)
              (switch-to-buffer unassociated-new-buffer-name)
-           (ansi-term ,command ,new-buffer-name))))))
+           (run-in-vterm ,command))))))
 
 (defun ensure-external-binaries-are-installed (binaries)
   "Ensure a list of binaries are installed, executable and in your exec-path."

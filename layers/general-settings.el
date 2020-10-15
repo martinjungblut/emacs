@@ -18,7 +18,7 @@
 
 ;; load a nice font
 (when (member "Ubuntu Mono" (font-family-list))
-  (set-face-attribute 'default nil :font "Ubuntu Mono" :height 110))
+  (set-face-attribute 'default nil :font "Ubuntu Mono" :height 115))
 
 ;; hideshow
 (add-hook 'prog-mode-hook #'hs-minor-mode)
@@ -26,7 +26,7 @@
 ;; load a nice colour theme
 (use-package doom-themes
   :ensure t
-  :config (load-theme 'doom-moonlight t))
+  :config (load-theme 'doom-tomorrow-night t))
 
 ;; evil - vim emulation
 (use-package evil
