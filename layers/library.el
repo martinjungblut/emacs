@@ -26,10 +26,10 @@
     (message (format "- New font size: %d" new-font-size))))
 
 (defun font-size-default ()
-  "Set font size to its default value: 110."
+  "Set font size to its default value: 115."
   (interactive)
-  (set-face-attribute 'default nil :height 110)
-  (message (format "- New font size: %d" 110)))
+  (set-face-attribute 'default nil :height 115)
+  (message (format "- New font size: %d" 115)))
 
 (defun evaluate-region ()
   (interactive)
