@@ -61,3 +61,6 @@
     (with-current-buffer buf
       (if (string-equal major-mode target-major-mode)
           (funcall callback)))))
+
+(defun fs-get-project-directory ()
+  (or (projectile-project-root) default-directory))
