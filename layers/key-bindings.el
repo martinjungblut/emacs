@@ -70,6 +70,7 @@
 
 ;; feature toggle key bindings
 (global-set-key (kbd "s-t s") 'global-whitespace-mode)
+(global-set-key (kbd "s-t c") 'global-flycheck-mode)
 (define-key projectile-mode-map (kbd "s-t p") 'projectile-command-map)
 (global-set-key (kbd "s-t f ]") 'hs-hide-all)
 (global-set-key (kbd "s-t f [") 'hs-show-all)

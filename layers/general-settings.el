@@ -16,10 +16,6 @@
 
 (setq-default tab-width 4)
 
-;; load a nice font
-(when (member "Ubuntu Mono" (font-family-list))
-  (set-face-attribute 'default nil :font "Ubuntu Mono" :height 115))
-
 ;; hideshow
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 

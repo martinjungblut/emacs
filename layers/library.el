@@ -11,26 +11,6 @@
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
   (message "Killed all buffers!"))
 
-(defun font-size-increase ()
-  "Increase font size."
-  (interactive)
-  (let ((new-font-size (+ (face-attribute 'default :height) 5)))
-    (set-face-attribute 'default nil :height new-font-size)
-    (message (format "+ New font size: %d" new-font-size))))
-
-(defun font-size-decrease ()
-  "Decrease font size."
-  (interactive)
-  (let ((new-font-size (- (face-attribute 'default :height) 5)))
-    (set-face-attribute 'default nil :height new-font-size)
-    (message (format "- New font size: %d" new-font-size))))
-
-(defun font-size-default ()
-  "Set font size to its default value: 115."
-  (interactive)
-  (set-face-attribute 'default nil :height 115)
-  (message (format "- New font size: %d" 115)))
-
 (defun evaluate-region ()
   (interactive)
   (when (region-active-p)

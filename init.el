@@ -5,6 +5,7 @@
 (load "package-management.el")
 
 (load "library.el")
+(load "font.el")
 (load "general-settings.el")
 (load "key-bindings.el")
 
@@ -16,3 +17,4 @@
 (load "lang/go.el")
 (load "lang/java.el")
 (load "lang/plantuml.el")
+(load "lang/rpmspec.el")
