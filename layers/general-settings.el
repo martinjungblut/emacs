@@ -125,8 +125,7 @@
 
 ;; enable magit globally
 (use-package magit
-  :ensure t
-  :config (global-magit-file-mode t))
+  :ensure t)
 
 (use-package flymd
   :ensure t)
