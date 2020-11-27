@@ -62,6 +62,8 @@
 (global-set-key (kbd "s-f f") 'helm-projectile-find-file)
 (global-set-key (kbd "s-f a") 'helm-find-files)
 (global-set-key (kbd "s-f s") 'helm-projectile-grep)
+(global-set-key (kbd "s-d d") 'cd)
+(global-set-key (kbd "s-d .") (lambda () (interactive) (dired default-directory)))
 
 ;; search and replace
 (global-set-key (kbd "s-g s") 'search-and-replace--start)
