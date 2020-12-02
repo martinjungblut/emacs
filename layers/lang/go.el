@@ -10,31 +10,31 @@
 ;; nodejs is required by dap-go
 (ensure-external-binaries-are-installed '("node"))
 
-(defun go-lsp-hook ()
+(defun go-hook-lsp ()
   (lsp-register-client
    (make-lsp-client :new-connection (lsp-stdio-connection "gopls")
                     :major-modes '(go-mode)
                     :server-id 'gopls))
   (lsp))
 
-(defun go-dap-hook ()
+(defun go-hook-dap ()
   (progn
 	(require 'dap-go)
 	(dap-go-setup)))
 
-(defun go-before-save-hook ()
+(defun go-hook-before-save ()
   (call-in-all-buffers-in-major-mode "go-mode" 'gofmt))
 
-(defun go-company-hook ()
+(defun go-hook-company ()
   (set (make-local-variable 'company-backends) '(company-capf)))
 
 (use-package go-mode
   :ensure t
   :after (lsp-mode dap-mode)
-  :config (add-hook 'go-mode-hook 'go-lsp-hook)
-          (add-hook 'go-mode-hook 'go-dap-hook)
-          (add-hook 'go-mode-hook 'go-company-hook)
-          (add-hook 'before-save-hook 'go-before-save-hook))
+  :config (add-hook 'go-mode-hook 'go-hook-lsp)
+          (add-hook 'go-mode-hook 'go-hook-dap)
+          (add-hook 'go-mode-hook 'go-hook-company)
+          (add-hook 'before-save-hook 'go-hook-before-save))
 
 (use-package godoctor
   :ensure t

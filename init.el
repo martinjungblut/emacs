@@ -18,3 +18,4 @@
 (load "lang/java.el")
 (load "lang/plantuml.el")
 (load "lang/rpmspec.el")
+(load "lang/c++.el")
