@@ -12,6 +12,7 @@
 (load "features/vterm.el")
 (load "features/search-and-replace.el")
 
+(load "lang/common-lisp.el")
 (load "lang/javascript.el")
 (load "lang/python.el")
 (load "lang/go.el")

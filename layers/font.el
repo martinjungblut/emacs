@@ -26,4 +26,4 @@
 	   (message (format "Default font size: %d" (font-size-get))))))
 
 
-(apply-font-settings "Ubuntu Mono" 125 5)
+(apply-font-settings "Ubuntu Mono" 105 5)
