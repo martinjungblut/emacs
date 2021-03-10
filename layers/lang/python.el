@@ -42,3 +42,10 @@
   :bind ("s-\\ e i" . python-interpreter-run)
   :init (elpy-enable)
   :config (add-hook 'python-mode-hook 'python-elpy-hook))
+
+(use-package lsp-python-ms
+  :ensure t
+  :init (setq lsp-python-ms-auto-install-server t)
+  :hook (python-mode . (lambda ()
+                         (require 'lsp-python-ms)
+                         (lsp))))
