@@ -20,3 +20,4 @@
 (load "lang/plantuml.el")
 (load "lang/rpmspec.el")
 (load "lang/c++.el")
+(load "lang/nasm.el")
