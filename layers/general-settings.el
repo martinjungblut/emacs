@@ -16,7 +16,7 @@
 
 (setq-default tab-width 4)
 
-;; hideshow
+;; hideshow - code folding
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
 ;; load a nice colour theme
@@ -123,7 +123,7 @@
   :ensure t
   :config (powerline-default-theme))
 
-;; enable magit globally
+;; magit - git porcelain inside emacs
 (use-package magit
   :ensure t)
 
@@ -133,27 +133,10 @@
 (use-package markdown-mode
   :ensure t)
 
-(use-package yaml-mode
-  :ensure t
-  :config (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
-
-(use-package ansible
-  :ensure t
-  :after yaml-mode
-  :config (add-hook 'yaml-mode-hook '(lambda () (ansible 1))))
-
 ;; drag-stuff - move text around easily
 (use-package drag-stuff
   :ensure t
   :config (drag-stuff-global-mode 1))
-
-;; tide - typescript interactive development environment
-(use-package tide
-  :ensure t
-  :after (typescript-mode company flycheck)
-  :hook ((typescript-mode . tide-setup)
-         (typescript-mode . tide-hl-identifier-mode)
-         (before-save . tide-format-before-save)))
 
 ;; hightlight symbol at point
 (use-package highlight-symbol
@@ -166,5 +149,7 @@
   :ensure t)
 
 (use-package flycheck
-  :ensure t
-  :config (add-hook 'after-init-hook 'global-flycheck-mode))
+  :ensure t)
+
+(use-package hydra
+  :ensure t)

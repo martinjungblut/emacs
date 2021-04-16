@@ -17,16 +17,20 @@
 (global-set-key (kbd "C-<left>") 'drag-stuff-left)
 (global-set-key (kbd "C-<right>") 'drag-stuff-right)
 
-;; help key bindings
-(global-set-key (kbd "s-h a") 'apropos)
-(global-set-key (kbd "s-h b") 'describe-bindings)
-(global-set-key (kbd "s-h k") 'describe-key)
-(global-set-key (kbd "s-h f") 'describe-function)
+(global-set-key (kbd "s-h") 'hydra-help/body)
+(defhydra hydra-help ()
+  "help"
+  ("a" apropos "apropos")
+  ("b" describe-bindings "describe-bindings")
+  ("k" describe-key "describe-key")
+  ("f" describe-function "describe-function"))
 
-;; eval
-(global-set-key (kbd "s-e e") 'eval-expression)
-(global-set-key (kbd "s-e r") 'evaluate-region)
-(global-set-key (kbd "s-e b") 'evaluate-buffer)
+(global-set-key (kbd "s-e") 'hydra-eval/body)
+(defhydra hydra-eval ()
+  "evaluate"
+  ("e" eval-expression "expression")
+  ("r" evaluate-region "region")
+  ("r" evaluate-buffer "buffer"))
 
 ;; buffer key bindings
 (global-set-key (kbd "s-'") (go-to-buffer-running-subprocess "bash"))
@@ -79,6 +83,9 @@
 (global-set-key (kbd "s-t f SPC") 'hs-toggle-hiding)
 
 ;; magit/git key bindings
-(global-set-key (kbd "s-g .") 'magit)
-(global-set-key (kbd "s-g b") 'magit-blame)
-(global-set-key (kbd "s-g k") 'magit-run-gitk)
+(global-set-key (kbd "s-g") 'hydra-magit/body)
+(defhydra hydra-magit ()
+  "magit"
+  ("." magit "here")
+  ("b" magit-blame "blame")
+  ("k" magit-run-gitk "gitk"))
