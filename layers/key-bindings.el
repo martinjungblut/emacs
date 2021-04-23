@@ -20,6 +20,7 @@
 (global-set-key (kbd "s-h") 'hydra-help/body)
 (defhydra hydra-help ()
   "help"
+  ("q" nil "quit" :color red)
   ("a" apropos "apropos")
   ("b" describe-bindings "describe-bindings")
   ("k" describe-key "describe-key")
@@ -28,9 +29,10 @@
 (global-set-key (kbd "s-e") 'hydra-eval/body)
 (defhydra hydra-eval ()
   "evaluate"
-  ("e" eval-expression "expression")
-  ("r" evaluate-region "region")
-  ("r" evaluate-buffer "buffer"))
+  ("q" nil "quit" :color red)
+  ("e" eval-expression "expression" :exit t)
+  ("r" evaluate-region "region" :exit t)
+  ("b" evaluate-buffer "buffer" :exit t))
 
 ;; buffer key bindings
 (global-set-key (kbd "s-'") (go-to-buffer-running-subprocess "bash"))
@@ -69,23 +71,25 @@
 (global-set-key (kbd "s-d d") 'cd)
 (global-set-key (kbd "s-d .") (lambda () (interactive) (dired default-directory)))
 
-;; search and replace
-(global-set-key (kbd "s-g s") 'search-and-replace--start)
-(global-set-key (kbd "s-g SPC") 'search-and-replace--toggle-buffer)
-(global-set-key (kbd "s-g c") 'search-and-replace--commit)
-
 ;; feature toggle key bindings
-(global-set-key (kbd "s-t s") 'global-whitespace-mode)
-(global-set-key (kbd "s-t c") 'global-flycheck-mode)
-(define-key projectile-mode-map (kbd "s-t p") 'projectile-command-map)
-(global-set-key (kbd "s-t f ]") 'hs-hide-all)
-(global-set-key (kbd "s-t f [") 'hs-show-all)
-(global-set-key (kbd "s-t f SPC") 'hs-toggle-hiding)
+(global-set-key (kbd "s-t") 'hydra-toggle/body)
+(defhydra hydra-toggle ()
+  "toggle"
+  ("q" nil "quit" :color red)
+  ("s" global-whitespace-mode "whitespace" :exit t)
+  ("c" global-flycheck-mode "flycheck" :exit t)
+  ("]" hs-hide-all "folding hide all")
+  ("[" hs-show-all "folding show all")
+  ("SPC" hs-toggle-hiding "folding toggle"))
 
 ;; magit/git key bindings
 (global-set-key (kbd "s-g") 'hydra-magit/body)
 (defhydra hydra-magit ()
   "magit"
-  ("." magit "here")
-  ("b" magit-blame "blame")
-  ("k" magit-run-gitk "gitk"))
+  ("q" nil "quit" :color red)
+  ("." magit "here" :exit t)
+  ("b" magit-blame "blame" :exit t)
+  ("k" magit-run-gitk "gitk")
+  ("s" search-and-replace--start "search-and-replace start")
+  ("SPC" search-and-replace--toggle-buffer "search-and-replace toggle-buffer")
+  ("c" search-and-replace--commit "search-and-replace commit"))
