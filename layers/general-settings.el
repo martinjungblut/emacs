@@ -143,7 +143,7 @@
   :ensure t
   :config
   (progn (setq highlight-symbol-idle-delay 0.2)
-		 (add-hook 'prog-mode-hook #'highlight-symbol-mode)))
+         (add-hook 'prog-mode-hook #'highlight-symbol-mode)))
 
 (use-package protobuf-mode
   :ensure t)
@@ -159,4 +159,4 @@
   :ensure t
   :config
   (progn (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
-		 (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)))
+         (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)))

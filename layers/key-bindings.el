@@ -50,6 +50,8 @@
   ("k" kill-buffer "kill current" :exit t)
   ("o" kill-other-buffers "kill others" :exit t)
   ("a" kill-all-buffers "kill all" :exit t)
+  ("b" bookmark-set "set bookmark" :exit t)
+  ("B" helm-bookmarks "list bookmarks" :exit t)
   ("l" helm-buffers-list "list buffers" :exit t)
   ("i" ibuffer "ibuffer" :exit t)
   ("r" revert-buffers-no-confirm "revert all" :exit t)
