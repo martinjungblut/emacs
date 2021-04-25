@@ -20,9 +20,9 @@
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
 ;; load a nice colour theme
-(use-package doom-themes
+(use-package modus-themes
   :ensure t
-  :config (load-theme 'doom-tomorrow-night t))
+  :config (load-theme 'modus-operandi t))
 
 ;; evil - vim emulation
 (use-package evil
@@ -57,7 +57,7 @@
   :ensure t
   :after lsp-mode
   :config (dap-mode t)
-          (dap-ui-mode t))
+  (dap-ui-mode t))
 
 ;; ace-jump - easily jump anywhere across multiple windows and buffers
 (use-package ace-jump-mode
@@ -141,9 +141,9 @@
 ;; hightlight symbol at point
 (use-package highlight-symbol
   :ensure t
-  :config (progn
-        (setq highlight-symbol-idle-delay 0.3)
-        (add-hook 'prog-mode-hook #'highlight-symbol-mode)))
+  :config
+  (progn (setq highlight-symbol-idle-delay 0.2)
+		 (add-hook 'prog-mode-hook #'highlight-symbol-mode)))
 
 (use-package protobuf-mode
   :ensure t)
@@ -153,3 +153,10 @@
 
 (use-package hydra
   :ensure t)
+
+;; rainbow-delimiters - colour matching parentheses
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (progn (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
+		 (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)))
