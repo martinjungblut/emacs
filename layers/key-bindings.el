@@ -71,6 +71,7 @@
   ("s" global-whitespace-mode "whitespace" :exit t)
   ("n" narrow-to-region "narrow to region" :exit t)
   ("N" widen "widen from region" :exit t)
+  ("l" global-display-line-numbers-mode "line numbers" :exit t)
   ("C" global-flycheck-mode "flycheck" :exit t)
   ("]" hs-hide-all "folding hide all")
   ("[" hs-show-all "folding show all")
