@@ -69,6 +69,7 @@
   ("q" nil "quit" :color red)
   ("c" comment-dwim "comment" :exit t)
   ("s" global-whitespace-mode "whitespace" :exit t)
+  ("t" toggle-theme "cycle colour theme")
   ("n" narrow-to-region "narrow to region" :exit t)
   ("N" widen "widen from region" :exit t)
   ("l" global-display-line-numbers-mode "line numbers" :exit t)

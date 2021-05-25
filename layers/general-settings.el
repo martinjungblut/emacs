@@ -19,11 +19,6 @@
 ;; hideshow - code folding
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
-;; load a nice colour theme
-(use-package modus-themes
-  :ensure t
-  :config (load-theme 'modus-operandi t))
-
 ;; evil - vim emulation
 (use-package evil
   :ensure t

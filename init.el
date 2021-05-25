@@ -6,6 +6,7 @@
 
 (load "library.el")
 (load "font.el")
+(load "theme.el")
 (load "general-settings.el")
 (load "key-bindings.el")
 
