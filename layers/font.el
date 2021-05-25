@@ -26,4 +26,4 @@
 	   (message (format "Default font size: %d" (font-size-get))))))
 
 
-(apply-font-settings "PT Mono" 105 5)
+(apply-font-settings "PT Mono" 110 5)

@@ -9,7 +9,6 @@
   :ensure t)
 
 (defun cycle-themes (&rest themes)
-  (interactive)
   (let* ((current-theme-index (-elem-index (car custom-enabled-themes) themes))
          (attempted-index (+ 1 (or current-theme-index -1)))
          (next-theme (or (nth attempted-index themes) (car themes))))
@@ -21,4 +20,4 @@
 
 (defun toggle-theme ()
   (interactive)
-  (cycle-themes 'modus-operandi 'doom-homage-white 'modus-vivendi 'doom-homage-black))
+  (cycle-themes 'doom-homage-white 'doom-homage-black))
