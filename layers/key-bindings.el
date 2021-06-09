@@ -1,3 +1,6 @@
+(use-package hydra
+  :ensure t)
+
 ;; general key bindings
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "s-x") 'helm-M-x)

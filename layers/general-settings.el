@@ -146,9 +146,6 @@
 (use-package flycheck
   :ensure t)
 
-(use-package hydra
-  :ensure t)
-
 ;; rainbow-delimiters - colour matching parentheses
 (use-package rainbow-delimiters
   :ensure t
