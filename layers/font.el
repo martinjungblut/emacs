@@ -1,29 +1,29 @@
-(defmacro apply-font-settings (font-name font-size size-factor)
+(defmacro apply-font-settings (font-name font-weight font-height height-factor)
   `(progn
 	 ;; load a nice font
 	 (when (member ,font-name (font-family-list))
-	   (set-face-attribute 'default nil :font ,font-name :height ,font-size))
+	   (set-face-attribute 'default nil :font ,font-name :height ,font-height :weight ,font-weight))
 
-	 (defun font-size-get ()
+	 (defun font-height-get ()
 	   (face-attribute 'default :height))
 
-	 (defun font-size-increase ()
-	   "Increase font size."
+	 (defun font-height-increase ()
+	   "Increase font height."
 	   (interactive)
-	   (set-face-attribute 'default nil :height (+ (font-size-get) ,size-factor))
-	   (message (format "+ New font size: %d" (font-size-get))))
+	   (set-face-attribute 'default nil :height (+ (font-height-get) ,height-factor))
+	   (message (format "+ New font height: %d" (font-height-get))))
 
-	 (defun font-size-decrease ()
-	   "Decrease font size."
+	 (defun font-height-decrease ()
+	   "Decrease font height."
 	   (interactive)
-	   (set-face-attribute 'default nil :height (- (font-size-get) ,size-factor))
-	   (message (format "- New font size: %d" (font-size-get))))
+	   (set-face-attribute 'default nil :height (- (font-height-get) ,height-factor))
+	   (message (format "- New font height: %d" (font-height-get))))
 
-	 (defun font-size-default ()
-	   "Set font size to its default value."
+	 (defun font-height-default ()
+	   "Set font height to its default value."
 	   (interactive)
-	   (set-face-attribute 'default nil :height ,font-size)
-	   (message (format "Default font size: %d" (font-size-get))))))
+	   (set-face-attribute 'default nil :height ,font-height)
+	   (message (format "Default font height: %d" (font-height-get))))))
 
 
-(apply-font-settings "PT Mono" 110 5)
+(apply-font-settings "PT Mono" 'regular 110 5)

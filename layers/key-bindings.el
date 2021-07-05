@@ -6,9 +6,9 @@
 (global-set-key (kbd "s-x") 'helm-M-x)
 (global-set-key (kbd "s-q") 'evil-escape)
 (global-set-key (kbd "<escape>") 'evil-escape)
-(global-set-key (kbd "s--") 'font-size-decrease)
-(global-set-key (kbd "s-=") 'font-size-increase)
-(global-set-key (kbd "s-0") 'font-size-default)
+(global-set-key (kbd "s--") 'font-height-decrease)
+(global-set-key (kbd "s-=") 'font-height-increase)
+(global-set-key (kbd "s-0") 'font-height-default)
 
 (global-set-key (kbd "C-<up>") 'drag-stuff-up)
 (global-set-key (kbd "C-<down>") 'drag-stuff-down)
