@@ -6,3 +6,7 @@
   :hook (python-mode . (lambda ()
                          (require 'lsp-pyright)
                          (lsp))))
+
+(use-package python-black
+  :ensure t
+  :hook (python-mode . python-black-on-save-mode-enable-dwim))
