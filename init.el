@@ -22,5 +22,6 @@
 (load "lang/nasm.el")
 (load "lang/plantuml.el")
 (load "lang/python.el")
+(load "lang/racket.el")
 (load "lang/rpmspec.el")
 (load "lang/typescript.el")
