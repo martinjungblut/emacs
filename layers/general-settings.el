@@ -152,3 +152,6 @@
   :config
   (progn (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
          (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)))
+
+(use-package restclient
+  :ensure t)
