@@ -4,9 +4,9 @@
 
 (load "package-management.el")
 
-(load "library.el")
-(load "font.el")
 (load "theme.el")
+(load "font.el")
+(load "library.el")
 (load "general-settings.el")
 (load "key-bindings.el")
 
