@@ -26,4 +26,4 @@
 	   (message (format "Default font height: %d" (font-height-get))))))
 
 
-(apply-font-settings "PT Mono" 'regular 108 5)
+(apply-font-settings "Fira Mono" 'bold 120 5)
