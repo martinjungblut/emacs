@@ -8,5 +8,7 @@
                          (lsp))))
 
 (use-package python-black
-  :ensure t
-  :hook (python-mode . python-black-on-save-mode-enable-dwim))
+  :ensure t)
+
+(use-package pyimport
+  :ensure t)
