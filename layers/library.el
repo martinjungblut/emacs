@@ -64,3 +64,13 @@
 
 (defun fs-get-project-directory ()
   (or (projectile-project-root) default-directory))
+
+(defun bookmark-current-line ()
+  (interactive)
+  (let* ((buffer (buffer-name (current-buffer)))
+         (directory (file-name-directory buffer-file-name))
+         (bookmark-name (format "%s%s:%s" directory buffer (line-number-at-pos))))
+    (progn
+      (bookmark-set-internal "" bookmark-name 'overwrite)
+      (bookmark-save)
+      (message (format "Added a new bookmark: %s" bookmark-name)))))
