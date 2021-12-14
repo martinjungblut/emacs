@@ -55,6 +55,7 @@
   ("a" kill-all-buffers "kill all" :exit t)
   ("b" helm-bookmarks "list bookmarks" :exit t)
   ("B" bookmark-current-line "set bookmark" :exit t)
+  ("d" bookmark-delete-current-line "delete bookmark" :exit t)
   ("l" helm-buffers-list "list buffers" :exit t)
   ("i" ibuffer "ibuffer" :exit t)
   ("r" revert-buffers-no-confirm "revert all" :exit t)

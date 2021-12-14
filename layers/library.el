@@ -65,12 +65,23 @@
 (defun fs-get-project-directory ()
   (or (projectile-project-root) default-directory))
 
-(defun bookmark-current-line ()
-  (interactive)
+(defun bookmark-get-name ()
   (let* ((buffer (buffer-name (current-buffer)))
          (directory (file-name-directory buffer-file-name))
          (bookmark-name (format "%s%s:%s" directory buffer (line-number-at-pos))))
+	bookmark-name))
+
+(defun bookmark-current-line ()
+  (interactive)
+  (let ((bookmark-name (bookmark-get-name)))
     (progn
       (bookmark-set-internal "" bookmark-name 'overwrite)
       (bookmark-save)
-      (message (format "Added a new bookmark: %s" bookmark-name)))))
+      (message (format "Added new bookmark: %s" bookmark-name)))))
+
+(defun bookmark-delete-current-line ()
+  (interactive)
+  (let ((bookmark-name (bookmark-get-name)))
+	(progn
+	  (bookmark-delete bookmark-name)
+      (message (format "Removed bookmark: %s" bookmark-name)))))
