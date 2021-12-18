@@ -26,3 +26,5 @@
 (load "lang/racket.el")
 (load "lang/rpmspec.el")
 (load "lang/typescript.el")
+
+(load custom-file t)
