@@ -3,6 +3,9 @@
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 
+;; enable save-place-mode
+(save-place-mode 1)
+
 ;; stop creating backup~ and #autosave# files
 (setq make-backup-files nil)
 (setq auto-save-default nil)
