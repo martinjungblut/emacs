@@ -159,3 +159,7 @@
 
 (use-package restclient
   :ensure t)
+
+;; docker
+(use-package docker
+  :ensure t)
