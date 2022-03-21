@@ -1,19 +1,19 @@
 #!/bin/sh
 
-GO111MODULE=on go get -v golang.org/x/tools/gopls@latest
-go get -u -v github.com/cweill/gotests/...
-go get -u -v github.com/davidrjenni/reftools/cmd/fillstruct
-go get -u -v github.com/fatih/gomodifytags
-go get -u -v github.com/go-delve/delve/cmd/dlv
-go get -u -v github.com/godoctor/godoctor
-go get -u -v github.com/golangci/golangci-lint/cmd/golangci-lint
-go get -u -v github.com/haya14busa/gopkgs/cmd/gopkgs
-go get -u -v github.com/josharian/impl
-go get -u -v github.com/mdempsky/gocode
-go get -u -v github.com/rogpeppe/godef
-go get -u -v github.com/zmb3/gogetdoc
-go get -u -v golang.org/x/lint/golint
-go get -u -v golang.org/x/tools/cmd/godoc
-go get -u -v golang.org/x/tools/cmd/goimports
-go get -u -v golang.org/x/tools/cmd/gorename
-go get -u -v golang.org/x/tools/cmd/guru
+go install -v golang.org/x/tools/gopls@latest
+go install -v github.com/cweill/gotests@latest
+go install -v github.com/davidrjenni/reftools/cmd/fillstruct@latest
+go install -v github.com/fatih/gomodifytags@latest
+go install -v github.com/go-delve/delve/cmd/dlv@latest
+go install -v github.com/godoctor/godoctor@latest
+go install -v github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+go install -v github.com/haya14busa/gopkgs/cmd/gopkgs@latest
+go install -v github.com/josharian/impl@latest
+go install -v github.com/mdempsky/gocode@latest
+go install -v github.com/rogpeppe/godef@latest
+go install -v github.com/zmb3/gogetdoc@latest
+go install -v golang.org/x/lint/golint@latest
+go install -v golang.org/x/tools/cmd/godoc@latest
+go install -v golang.org/x/tools/cmd/goimports@latest
+go install -v golang.org/x/tools/cmd/gorename@latest
+go install -v golang.org/x/tools/cmd/guru@latest
