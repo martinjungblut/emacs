@@ -1,7 +1,15 @@
 ;; disable all menu bars
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
+(defun disable-bars ()
+  (menu-bar-mode -1)
+  (toggle-scroll-bar -1)
+  (tool-bar-mode -1))
+
+(defun disable-bars-on-frame (frame)
+  (select-frame frame)
+  (disable-bars))
+
+(disable-bars)
+(add-hook 'after-make-frame-functions 'disable-bars-on-frame)
 
 ;; enable save-place-mode
 (save-place-mode 1)
