@@ -72,6 +72,7 @@
   "toggle"
   ("q" nil "quit" :color red)
   ("c" comment-dwim "comment" :exit t)
+  ("a" autoscroll-toggle "autoscroll" :exit t)
   ("s" global-whitespace-mode "whitespace" :exit t)
   ("t" toggle-theme "cycle colour theme")
   ("n" narrow-to-region "narrow to region" :exit t)
