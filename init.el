@@ -13,6 +13,7 @@
 (load "features/vterm.el")
 (load "features/search-and-replace.el")
 (load "features/autokill-buffers.el")
+(load "features/autoscroll.el")
 
 (load "lang/ansible.el")
 (load "lang/c++.el")
