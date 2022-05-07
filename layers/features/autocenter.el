@@ -1,0 +1,1 @@
+(global-autocenter-mode t)
