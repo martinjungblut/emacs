@@ -20,6 +20,11 @@
 (global-set-key (kbd "s-<left>") 'windmove-left)
 (global-set-key (kbd "s-<right>") 'windmove-right)
 
+(global-set-key (kbd "S-<up>") 'evil-previous-line-recenter)
+(global-set-key (kbd "S-<down>") 'evil-next-line-recenter)
+(global-set-key (kbd "S-<left>") 'recenter)
+(global-set-key (kbd "S-<right>") 'recenter)
+
 (global-set-key (kbd "s-S-<up>") 'split-window-vertically)
 (global-set-key (kbd "s-S-<down>") 'split-window-vertically)
 (global-set-key (kbd "s-S-<left>") 'split-window-horizontally)
@@ -72,8 +77,6 @@
   "toggle"
   ("q" nil "quit" :color red)
   ("c" comment-dwim "comment" :exit t)
-  ("a" autocenter-mode "autocenter-mode" :exit t)
-  ("A" global-autocenter-mode "global-autocenter-mode" :exit t)
   ("s" global-whitespace-mode "whitespace" :exit t)
   ("t" toggle-theme "cycle colour theme")
   ("n" narrow-to-region "narrow to region" :exit t)

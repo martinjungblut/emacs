@@ -13,8 +13,7 @@
 (load "features/vterm.el")
 (load "features/search-and-replace.el")
 (load "features/autokill-buffers.el")
-(load "features/autocenter-mode.el")
-(load "features/autocenter.el")
+(load "features/evil-recenter.el")
 
 (load "lang/ansible.el")
 (load "lang/c++.el")
