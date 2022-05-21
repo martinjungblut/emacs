@@ -35,7 +35,15 @@
 (global-set-key (kbd "s-C-<left>") 'shrink-window-horizontally)
 (global-set-key (kbd "s-C-<right>") 'enlarge-window-horizontally)
 
-(global-set-key (kbd "s-'") (go-to-buffer-running-subprocess "bash"))
+(global-set-key (kbd "s-1") (go-to-buffer-running-subprocess "fish" ""))
+(global-set-key (kbd "s-2") (go-to-buffer-running-subprocess "fish" "<2>"))
+(global-set-key (kbd "s-3") (go-to-buffer-running-subprocess "fish" "<3>"))
+(global-set-key (kbd "s-4") (go-to-buffer-running-subprocess "fish" "<4>"))
+(global-set-key (kbd "s-5") (go-to-buffer-running-subprocess "fish" "<5>"))
+(global-set-key (kbd "s-6") (go-to-buffer-running-subprocess "fish" "<6>"))
+(global-set-key (kbd "s-7") (go-to-buffer-running-subprocess "fish" "<7>"))
+(global-set-key (kbd "s-8") (go-to-buffer-running-subprocess "fish" "<8>"))
+(global-set-key (kbd "s-9") (go-to-buffer-running-subprocess "fish" "<9>"))
 
 (defhydra hydra-help ()
   "help"

@@ -22,11 +22,11 @@
   (eval-buffer)
   (message "Buffer evaluated."))
 
-(defun go-to-buffer-running-subprocess (command)
-  "Create a function that toggle switches to a buffer running a specified subprocess, powered by ansi-term."
+(defun go-to-buffer-running-subprocess (command buffer-number)
+  "Create a function that toggle switches to a buffer running a specified subprocess, powered by vterm."
   `(lambda ()
      (interactive)
-     (let ((unassociated-new-buffer-name (format "*%s*" ,command)))
+     (let ((unassociated-new-buffer-name (format "*%s*%s" ,command ,buffer-number)))
        (if (string-equal (buffer-name) unassociated-new-buffer-name)
            (previous-buffer)
          (if (get-buffer unassociated-new-buffer-name)
