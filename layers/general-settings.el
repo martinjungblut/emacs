@@ -1,3 +1,6 @@
+;; set utf-8 as the default encoding
+(set-default-coding-systems 'utf-8)
+
 ;; disable all menu bars
 (defun disable-bars ()
   (menu-bar-mode -1)

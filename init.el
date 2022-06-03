@@ -4,6 +4,7 @@
 
 (load "package-management.el")
 
+(load "performance.el")
 (load "theme.el")
 (load "font.el")
 (load "library.el")
