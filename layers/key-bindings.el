@@ -65,7 +65,7 @@
   ("q" nil "quit" :color red)
   ("k" kill-buffer "kill current" :exit t)
   ("o" kill-other-buffers "kill others" :exit t)
-  ("a" kill-all-buffers "kill all" :exit t)
+  ("a" autokill-buffers "autokill" :exit t)
   ("b" helm-bookmarks "list bookmarks" :exit t)
   ("B" bookmark-current-line "set bookmark" :exit t)
   ("d" bookmark-delete-current-line "delete bookmark" :exit t)

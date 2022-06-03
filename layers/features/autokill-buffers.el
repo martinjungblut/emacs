@@ -1,5 +1,6 @@
 (defun autokill-buffers ()
-  (let ((regexes '("magit.*")))
+  (interactive)
+  (let ((regexes '("magit.*" "\*Help\*" "\*Apropos\*" "\*WoMan-Log\*")))
     (dolist (regex regexes)
       (dolist (buf (buffer-list))
         (let ((buf-name (buffer-name buf)))
@@ -9,5 +10,3 @@
             (progn
               (message (format "Automatically killing buffer: %s" buf-name))
               (kill-buffer buf))))))))
-
-(add-hook 'after-save-hook 'autokill-buffers)
