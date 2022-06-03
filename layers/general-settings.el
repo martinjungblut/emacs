@@ -55,20 +55,6 @@
   :after company
   :config (company-quickhelp-mode))
 
-;; support for language server protocol (lsp) and debug adapter protocol (dap)
-(use-package lsp-mode
-  :ensure t
-  :config (setq lsp-enable-file-watchers nil))
-(use-package lsp-ui
-  :ensure t
-  :after lsp-mode
-  :config (add-hook 'lsp-mode-hook 'lsp-ui-mode))
-(use-package dap-mode
-  :ensure t
-  :after lsp-mode
-  :config (dap-mode t)
-  (dap-ui-mode t))
-
 ;; ace-jump - easily jump anywhere across multiple windows and buffers
 (use-package ace-jump-mode
   :ensure t
@@ -135,12 +121,6 @@
 
 ;; magit - git porcelain inside emacs
 (use-package magit
-  :ensure t)
-
-(use-package flymd
-  :ensure t)
-
-(use-package markdown-mode
   :ensure t)
 
 ;; drag-stuff - move text around easily
