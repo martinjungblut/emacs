@@ -35,6 +35,7 @@
 (global-set-key (kbd "s-C-<left>") 'shrink-window-horizontally)
 (global-set-key (kbd "s-C-<right>") 'enlarge-window-horizontally)
 
+(global-set-key (kbd "s-'") 'vterm-reset-cursor-point)
 (global-set-key (kbd "s-1") (go-to-buffer-running-subprocess "fish" ""))
 (global-set-key (kbd "s-2") (go-to-buffer-running-subprocess "fish" "<2>"))
 (global-set-key (kbd "s-3") (go-to-buffer-running-subprocess "fish" "<3>"))
