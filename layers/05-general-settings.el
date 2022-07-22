@@ -1,3 +1,6 @@
+;; disable warnings
+(setq warning-minimum-level :emergency)
+
 ;; set utf-8 as the default encoding
 (set-default-coding-systems 'utf-8)
 
