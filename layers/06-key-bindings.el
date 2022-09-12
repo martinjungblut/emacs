@@ -7,7 +7,7 @@
 (global-set-key (kbd "s-q") 'evil-escape)
 (global-set-key (kbd "<escape>") 'evil-escape)
 (global-set-key (kbd "s--") 'font-height-decrease)
-(global-set-key (kbd "s-=") 'font-height-increase)
+(global-set-key (kbd "s-+") 'font-height-increase)
 (global-set-key (kbd "s-0") 'font-height-default)
 
 (global-set-key (kbd "C-<up>") 'drag-stuff-up)
