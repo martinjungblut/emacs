@@ -109,7 +109,7 @@
   ("d" cd "change directory" :exit t)
   ("f" helm-projectile-find-file "find project files" :exit t)
   ("a" helm-find-files "find all files" :exit t)
-  ("g" helm-projectile-grep "grep" :exit t)
+  ("g" helm-projectile-rg "ripgrep" :exit t)
   ("s" helm-multi-swoop-all "swoop in all buffers" :exit t)
   ("D" (dired default-directory) "dired here" :exit t)
   ("SPC" find-file "find file (without helm)" :exit t))

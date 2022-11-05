@@ -93,6 +93,11 @@
   :ensure t
   :after helm)
 
+;; helm-rg
+(use-package helm-rg
+  :ensure t
+  :after helm)
+
 ;; wgrep - powerful searching and replacing
 (use-package wgrep
   :ensure t)
