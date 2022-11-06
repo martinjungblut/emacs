@@ -88,6 +88,10 @@
 (use-package helm
   :ensure t)
 
+;; helm-gtags - powered by GNU Global
+(use-package helm-gtags
+  :ensure t)
+
 ;; helm-swoop
 (use-package helm-swoop
   :ensure t

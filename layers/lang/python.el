@@ -12,3 +12,5 @@
 
 (use-package pyimport
   :ensure t)
+
+(add-hook 'python-mode-hook 'helm-gtags-mode)

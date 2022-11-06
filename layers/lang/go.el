@@ -39,3 +39,5 @@
 (use-package godoctor
   :ensure t
   :after go-mode)
+
+(add-hook 'go-mode-hook 'helm-gtags-mode)
