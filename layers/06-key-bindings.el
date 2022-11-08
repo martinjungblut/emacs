@@ -123,9 +123,11 @@
   ("t" search-and-replace--toggle-buffer "search-and-replace toggle-buffer" :exit t)
   ("c" search-and-replace--commit "search-and-replace commit" :exit t))
 
-(defhydra hydra-tags ()
+(defhydra hydra-reference ()
   ("q" nil "quit" :color red)
   ("<return>" helm-gtags-find-tag-from-here "find tag from here" :exit t)
+  ("SPC" lsp-goto-type-definition "go to type definition via LSP" :exit t)
+  ("." lsp-goto-implementation "go to implementation via LSP" :exit t)
   ("t" helm-gtags-find-tag "find tag" :exit t)
   ("f" helm-gtags-find-pattern "find pattern" :exit t)
   ("p" helm-gtags-pop-stack "pop stack" :exit t)
@@ -133,7 +135,7 @@
   ("u" helm-gtags-update-tags "update tags" :exit t))
 
 (global-set-key (kbd "s-h") 'hydra-help/body)
-(global-set-key (kbd "s-a") 'hydra-tags/body)
+(global-set-key (kbd "s-r") 'hydra-reference/body)
 (global-set-key (kbd "s-e") 'hydra-eval/body)
 (global-set-key (kbd "s-b") 'hydra-buffer/body)
 (global-set-key (kbd "s-w") 'hydra-window/body)
@@ -147,7 +149,7 @@
   "master"
   ("q" nil "quit" :color red)
   ("h" hydra-help/body "help" :exit t)
-  ("a" hydra-tags/body "tags" :exit t)
+  ("r" hydra-reference/body "reference" :exit t)
   ("e" hydra-eval/body "eval" :exit t)
   ("b" hydra-buffer/body "buffer" :exit t)
   ("w" hydra-window/body "window" :exit t)
