@@ -1,11 +1,14 @@
-(defun c++-hook-set-indentation ()
-  (progn
-    (setq-default indent-tabs-mode nil)
-    (setq-default tab-width 2)))
+(defun c-c++-hook-lsp ()
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection "clangd")
+                    :major-modes '(c++-mode c-mode)
+                    :server-id 'clangd))
+  (lsp))
 
 ;; C++
-(add-hook 'c++-mode-hook 'c++-hook-set-indentation)
 (add-hook 'c++-mode-hook 'helm-gtags-mode)
+(add-hook 'c++-mode-hook 'c-c++-hook-lsp)
 
 ;; C
 (add-hook 'c-mode-hook 'helm-gtags-mode)
+(add-hook 'c-mode-hook 'c-c++-hook-lsp)
