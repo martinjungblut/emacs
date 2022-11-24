@@ -1,6 +1,9 @@
 ;; disable warnings
 (setq warning-minimum-level :emergency)
 
+;; disable ring-bell-function
+(setq ring-bell-function 'ignore)
+
 ;; set utf-8 as the default encoding
 (set-default-coding-systems 'utf-8)
 
