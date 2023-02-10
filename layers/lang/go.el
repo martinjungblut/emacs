@@ -19,8 +19,7 @@
 
 (defun go-hook-dap ()
   (progn
-	(require 'dap-go)
-	(dap-go-setup)))
+	(require 'dap-dlv-go)))
 
 (defun go-hook-before-save ()
   (call-in-all-buffers-in-major-mode "go-mode" 'gofmt))
