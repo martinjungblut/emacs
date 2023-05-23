@@ -1,5 +1,11 @@
 (use-package typescript-mode
-  :ensure t)
+  :ensure t
+  :config
+  (progn
+	(let ((typescript-lsp-binary (expand-file-name ".cache/lsp/npm/typescript-language-server" user-emacs-directory)))
+	  (unless (file-exists-p typescript-lsp-binary)
+		(lsp-install-server nil 'ts-ls)))
+	(add-hook 'typescript-mode-hook 'lsp)))
 
 (use-package tide
   :ensure t
