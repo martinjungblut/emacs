@@ -25,4 +25,4 @@
 	   (set-face-attribute 'default nil :height ,font-height)
 	   (message (format "Default font height: %d" (font-height-get))))))
 
-(apply-font-settings "Inconsolata" 'regular 140 12)
+(apply-font-settings "Inconsolata" 'regular 165 12)
