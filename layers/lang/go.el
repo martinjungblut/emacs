@@ -30,10 +30,14 @@
 (use-package go-mode
   :ensure t
   :after (lsp-mode dap-mode)
-  :config (add-hook 'go-mode-hook 'go-hook-lsp)
-          (add-hook 'go-mode-hook 'go-hook-dap)
-          (add-hook 'go-mode-hook 'go-hook-company)
-          (add-hook 'before-save-hook 'go-hook-before-save))
+  :config
+    (add-hook 'go-mode-hook 'go-hook-lsp)
+    (add-hook 'go-mode-hook 'go-hook-dap)
+    (add-hook 'go-mode-hook 'go-hook-company)
+    (add-hook 'go-mode-hook 'hydra-go-mode)
+    (add-hook 'go-mode-hook 'helm-gtags-mode)
+    (add-hook 'window-state-change-hook 'hydra-go-mode-hook)
+    (add-hook 'before-save-hook 'go-hook-before-save))
 
 (use-package godoctor
   :ensure t
@@ -51,9 +55,3 @@
   nil
   :lighter " hydra-go"
   (hydra-go-mode-hook))
-
-(add-hook 'window-state-change-hook 'hydra-go-mode-hook)
-
-(add-hook 'go-mode-hook 'hydra-go-mode)
-
-(add-hook 'go-mode-hook 'helm-gtags-mode)
