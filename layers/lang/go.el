@@ -19,7 +19,7 @@
 
 (defun go-hook-dap ()
   (progn
-	(require 'dap-dlv-go)))
+    (require 'dap-dlv-go)))
 
 (defun go-hook-before-save ()
   (call-in-all-buffers-in-major-mode "go-mode" 'gofmt))
@@ -38,5 +38,22 @@
 (use-package godoctor
   :ensure t
   :after go-mode)
+
+(defun hydra-go-mode-hook ()
+  (if hydra-go-mode
+      (defhydra hydra-language ()
+        "go"
+        ("q" nil "quit" :color red)
+        ("d" godoc "look up documentation" :exit t))))
+
+(define-minor-mode hydra-go-mode
+  "minor mode providing hydra bindings for the Go programming language"
+  nil
+  :lighter " hydra-go"
+  (hydra-go-mode-hook))
+
+(add-hook 'window-state-change-hook 'hydra-go-mode-hook)
+
+(add-hook 'go-mode-hook 'hydra-go-mode)
 
 (add-hook 'go-mode-hook 'helm-gtags-mode)
