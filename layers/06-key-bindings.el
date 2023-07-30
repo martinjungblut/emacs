@@ -135,6 +135,10 @@
   ("c" helm-gtags-create-tags "create tags" :exit t)
   ("u" helm-gtags-update-tags "update tags" :exit t))
 
+(defhydra hydra-language ()
+  ""
+  ("q" nil "quit" :color red))
+
 (global-set-key (kbd "s-h") 'hydra-help/body)
 (global-set-key (kbd "s-r") 'hydra-reference/body)
 (global-set-key (kbd "s-e") 'hydra-eval/body)
@@ -143,6 +147,7 @@
 (global-set-key (kbd "s-t") 'hydra-toggle/body)
 (global-set-key (kbd "s-g") 'hydra-magit/body)
 (global-set-key (kbd "s-f") 'hydra-find/body)
+(global-set-key (kbd "s-l") 'hydra-language/body)
 (global-set-key (kbd "s-<return>") 'hydra-features/body)
 
 (global-set-key (kbd "s-SPC") 'hydra-master/body)
@@ -157,4 +162,5 @@
   ("t" hydra-toggle/body "toggle" :exit t)
   ("g" hydra-magit/body "magit" :exit t)
   ("f" hydra-find/body "find" :exit t)
+  ("l" hydra-language/body "language" :exit t)
   ("<return>" hydra-features/body "features" :exit t))
