@@ -10,6 +10,7 @@
 (global-set-key (kbd "s-=") 'font-height-increase)
 (global-set-key (kbd "s-0") 'font-height-default)
 (global-set-key (kbd "s-<tab>") 'ace-jump-mode)
+(global-set-key (kbd "s-<insert>") 'evil-insert-resume)
 
 (global-set-key (kbd "C-<up>") 'drag-stuff-up)
 (global-set-key (kbd "C-<down>") 'drag-stuff-down)
