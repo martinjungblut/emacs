@@ -3,7 +3,7 @@
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic nil)
-  (load-theme 'doom-opera t))
+  (load-theme 'doom-homage-black t))
 
 (use-package modus-themes
   :ensure t)
@@ -20,4 +20,4 @@
 
 (defun toggle-theme ()
   (interactive)
-  (cycle-themes 'doom-homage-white 'doom-opera))
+  (cycle-themes 'doom-homage-white 'doom-homage-black))
