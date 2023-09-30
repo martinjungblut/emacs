@@ -24,6 +24,7 @@
         ("r" cider-eval-region "eval region" :exit t)
         ("b" cider-eval-buffer-and-repl-set-ns "eval buffer" :exit t)
         ("d" cider-doc "look up documentation" :exit t)
+		("t" cider-test-run-ns-tests "run namespace tests" :exit t)
 		("SPC" cider-jack-in-universal "jack-in (universal)" :exit t)
 		("<return>" cider-format-buffer "format buffer" :exit t))))
 
