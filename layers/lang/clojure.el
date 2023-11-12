@@ -4,6 +4,7 @@
     (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 	;; hydra hooks
     (add-hook 'clojure-mode-hook 'hydra-clojure-mode)
+    (add-hook 'clojure-mode-hook 'clojure-hook-lsp)
     (add-hook 'window-state-change-hook 'hydra-clojure-mode-hook))
 
 (use-package cider
@@ -38,5 +39,12 @@
   (if cider--debug-mode    ;; Checks if you're entering the debugger
       (evil-insert-state)  ;; If so, turn on evil-insert-state
     (evil-normal-state)))  ;; Otherwise, turn on normal-state
+
+(defun clojure-hook-lsp ()
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection "clojure-lsp")
+                    :major-modes '(clojure-mode)
+                    :server-id 'clojure-lsp))
+  (lsp))
 
 (add-hook 'cider--debug-mode-hook 'my-cider-debug-toggle-insert-state)
