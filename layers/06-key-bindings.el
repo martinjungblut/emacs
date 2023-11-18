@@ -69,9 +69,6 @@
   ("k" kill-buffer "kill current" :exit t)
   ("o" kill-other-buffers "kill others" :exit t)
   ("a" kill-all-buffers "kill all" :exit t)
-  ("b" helm-bookmarks "list bookmarks" :exit t)
-  ("B" bookmark-current-line "set bookmark" :exit t)
-  ("d" bookmark-delete-current-line "delete bookmark" :exit t)
   ("l" helm-buffers-list "list buffers" :exit t)
   ("i" ibuffer "ibuffer" :exit t)
   ("r" revert-buffers-no-confirm "revert all" :exit t)
@@ -119,7 +116,10 @@
 (defhydra hydra-features ()
   ("q" nil "quit" :color red)
   ("<return>" indent-region "indent region" :exit t)
-  ("d" docker "docker" :exit t)
+  ("f" fill-region "fill region" :exit t)
+  ("b" helm-bookmarks "list bookmarks" :exit t)
+  ("B" bookmark-current-line "set bookmark" :exit t)
+  ("d" bookmark-delete-current-line "delete bookmark" :exit t)
   ("s" search-and-replace--start "search-and-replace start" :exit t)
   ("t" search-and-replace--toggle-buffer "search-and-replace toggle-buffer" :exit t)
   ("c" search-and-replace--commit "search-and-replace commit" :exit t))
@@ -136,10 +136,6 @@
   ("c" helm-gtags-create-tags "create tags" :exit t)
   ("u" helm-gtags-update-tags "update tags" :exit t))
 
-(defhydra hydra-language ()
-  ""
-  ("q" nil "quit" :color red))
-
 (global-set-key (kbd "s-h") 'hydra-help/body)
 (global-set-key (kbd "s-r") 'hydra-reference/body)
 (global-set-key (kbd "s-e") 'hydra-eval/body)
@@ -148,7 +144,7 @@
 (global-set-key (kbd "s-t") 'hydra-toggle/body)
 (global-set-key (kbd "s-g") 'hydra-magit/body)
 (global-set-key (kbd "s-f") 'hydra-find/body)
-(global-set-key (kbd "s-l") 'hydra-language/body)
+(global-set-key (kbd "s-p") 'hydra-language/body)
 (global-set-key (kbd "s-<return>") 'hydra-features/body)
 
 (global-set-key (kbd "s-SPC") 'hydra-master/body)
@@ -163,5 +159,5 @@
   ("t" hydra-toggle/body "toggle" :exit t)
   ("g" hydra-magit/body "magit" :exit t)
   ("f" hydra-find/body "find" :exit t)
-  ("l" hydra-language/body "language" :exit t)
+  ("p" hydra-language/body "programming language specific" :exit t)
   ("<return>" hydra-features/body "features" :exit t))
