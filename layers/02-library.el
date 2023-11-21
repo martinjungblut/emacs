@@ -85,3 +85,7 @@
 	(progn
 	  (bookmark-delete bookmark-name)
       (message (format "Removed bookmark: %s" bookmark-name)))))
+
+(defun dired-emacs-directory ()
+  (interactive)
+  (dired "~/.emacs.d/layers/"))

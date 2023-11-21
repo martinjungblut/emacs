@@ -111,6 +111,7 @@
   ("g" helm-projectile-rg "ripgrep" :exit t)
   ("s" helm-multi-swoop-all "swoop in all buffers" :exit t)
   ("D" (dired default-directory) "dired here" :exit t)
+  ("E" dired-emacs-directory "dired emacs directory" :exit t)
   ("SPC" find-file "find file (without helm)" :exit t))
 
 (defhydra hydra-features ()
