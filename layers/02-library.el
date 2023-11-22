@@ -33,6 +33,13 @@
              (switch-to-buffer unassociated-new-buffer-name)
            (run-in-vterm ,command))))))
 
+(defun go-to-buffer-running-bash ()
+  "Go to a buffer running Bash, specially suited for vterm + evil-mode"
+  (interactive)
+  (funcall (go-to-buffer-running-subprocess "bash" ""))
+  (call-interactively 'evil-insert-resume)
+  (vterm-reset-cursor-point))
+
 (defun ensure-external-binaries-are-installed (binaries)
   "Ensure a list of binaries are installed, executable and in your exec-path."
   (dolist (binary binaries)
