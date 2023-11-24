@@ -1,3 +1,9 @@
+(defun vterm-evil-reposition ()
+  "Reposition the cursor inside vterm so it properly reads the upcoming key combinations."
+  (interactive)
+  (call-interactively 'evil-insert-resume)
+  (vterm-reset-cursor-point))
+
 (defun kill-other-buffers ()
   "Kill all other buffers."
   (interactive)
@@ -37,8 +43,7 @@
   "Go to a buffer running Bash, specially suited for vterm + evil-mode"
   (interactive)
   (funcall (go-to-buffer-running-subprocess "bash" ""))
-  (call-interactively 'evil-insert-resume)
-  (vterm-reset-cursor-point))
+  (vterm-evil-reposition))
 
 (defun ensure-external-binaries-are-installed (binaries)
   "Ensure a list of binaries are installed, executable and in your exec-path."

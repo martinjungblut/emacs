@@ -19,7 +19,16 @@
 	"go"
 	("q" nil "quit" :color red)
 	("r" lsp-rename "rename variable (lsp)" :exit t)
-	("R" lsp-restart-workspace "restart workspace (lsp)" :exit t)))
+	("l" lsp-ui-peek-find-references "find references (lsp)" :exit t)
+	("R" lsp-restart-workspace "restart workspace (lsp)" :exit t)
+	("." evil-jump-to-tag "go to definition" :exit t)))
+
+(defun hydra-language-vterm ()
+  (interactive)
+  (defhydra hydra-language ()
+	"go"
+	("q" nil "quit" :color red)
+	("<return>" vterm-evil-reposition "reposition cursor" :exit t)))
 
 (defun hydra-language-default ()
   (interactive)
@@ -28,9 +37,11 @@
 	("q" nil "quit" :color red)))
 
 (defun hook-hydra-language-window-state-change ()
-	  (cond ((string-equal major-mode "clojure-mode") (call-interactively 'hydra-language-clojure))
-			((string-equal major-mode "go-mode") (call-interactively 'hydra-language-go))
-			(t (call-interactively 'hydra-language-default))))
+  (cond
+   ((string-equal major-mode "vterm-mode") (call-interactively 'hydra-language-vterm))
+   ((string-equal major-mode "clojure-mode") (call-interactively 'hydra-language-clojure))
+   ((string-equal major-mode "go-mode") (call-interactively 'hydra-language-go))
+   (t (call-interactively 'hydra-language-default))))
 
 (call-interactively 'hydra-language-default)
 

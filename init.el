@@ -12,3 +12,7 @@
 (load-directory "~/.emacs.d/layers/lang")
 
 (load custom-file t)
+
+;; automatically start server
+;; connect with "emacsclient"
+(server-start)
