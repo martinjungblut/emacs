@@ -2,18 +2,13 @@
 (setq package-list '())
 (add-to-list 'package-list 'use-package)
 
-;; declare package repositories
-(setq package-archives '())
-(add-to-list 'package-archives
-	     '("gnu-elpa" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.org/packages/") t)
-
 ;; enable package management
 (require 'package)
 (package-initialize)
+
+;; declare package repositories
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.org/packages/") t)
 
 ;; update all package repositories unless all required packages are installed and archive contents are available
 (setq refresh-contents-needed nil)
