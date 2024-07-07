@@ -38,6 +38,7 @@
 (global-set-key (kbd "s-C-<right>") 'enlarge-window-horizontally)
 
 (global-set-key (kbd "s-'") 'go-to-buffer-running-bash)
+(global-set-key (kbd "s-.") 'lsp-find-definition)
 
 (defhydra hydra-help ()
   "help"
