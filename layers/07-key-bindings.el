@@ -70,7 +70,8 @@
   "window"
   ("q" nil "quit" :color red)
   ("k" delete-window "kill current" :exit t)
-  ("o" delete-other-windows "kill others" :exit t))
+  ("o" delete-other-windows "kill others" :exit t)
+  ("SPC" make-frame "make a new frame" :exit t))
 
 (defhydra hydra-toggle ()
   "toggle"
