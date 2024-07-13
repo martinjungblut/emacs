@@ -4,6 +4,7 @@
 	"clojure"
 	("q" nil "quit" :color red)
 	("?" cider-debug-defun-at-point "debug defun at point" :exit t)
+	("m" cider-debug-move-here "debug move here" :exit t)
 	("." cider-eval-defun-at-point "eval defun at point" :exit t)
 	("r" cider-eval-region "eval region" :exit t)
 	("b" cider-eval-buffer-and-repl-set-ns "eval buffer" :exit t)
