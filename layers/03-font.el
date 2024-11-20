@@ -25,4 +25,4 @@
 	   (set-face-attribute 'default nil :height ,font-height)
 	   (message (format "Default font height: %d" (font-height-get))))))
 
-(apply-font-settings "Source Code Pro" 'regular 125 5)
+(apply-font-settings "Source Code Pro" 'regular 140 10)
