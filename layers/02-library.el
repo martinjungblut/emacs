@@ -28,16 +28,21 @@
   (eval-buffer)
   (message "Buffer evaluated."))
 
-(defun go-to-buffer-running-subprocess (command buffer-number)
-  "Create a function that toggle switches to a buffer running a specified subprocess, powered by vterm."
+(defun go-to-buffer-running-subprocess (command buffer-identifier)
+  "Create a function that toggle switches to a buffer running a specified subprocess, powered by vterm. Preserves the current frame configuration."
   `(lambda ()
      (interactive)
-     (let ((unassociated-new-buffer-name (format "*%s*%s" ,command ,buffer-number)))
-       (if (string-equal (buffer-name) unassociated-new-buffer-name)
-           (previous-buffer)
-         (if (get-buffer unassociated-new-buffer-name)
-             (switch-to-buffer unassociated-new-buffer-name)
-           (run-in-vterm ,command))))))
+     (let ((subprocess-buffer-name (format "*%s*%s" ,command ,buffer-identifier)))
+       (if (string-equal (buffer-name) subprocess-buffer-name)
+           (progn
+             (jump-to-register ?a)
+             (set-register ?a nil))
+         (progn
+           (frame-configuration-to-register ?a)
+           (delete-other-windows)
+           (if (get-buffer subprocess-buffer-name)
+               (switch-to-buffer subprocess-buffer-name)
+             (run-in-vterm ,command)))))))
 
 (defun go-to-buffer-running-bash ()
   "Go to a buffer running Bash, specially suited for vterm + evil-mode"
@@ -81,7 +86,7 @@
   (let* ((buffer (buffer-name (current-buffer)))
          (directory (file-name-directory buffer-file-name))
          (bookmark-name (format "%s%s:%s" directory buffer (line-number-at-pos))))
-	bookmark-name))
+    bookmark-name))
 
 (defun bookmark-current-line ()
   (interactive)
@@ -94,8 +99,8 @@
 (defun bookmark-delete-current-line ()
   (interactive)
   (let ((bookmark-name (bookmark-get-name)))
-	(progn
-	  (bookmark-delete bookmark-name)
+    (progn
+      (bookmark-delete bookmark-name)
       (message (format "Removed bookmark: %s" bookmark-name)))))
 
 (defun dired-emacs-directory ()
