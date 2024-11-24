@@ -50,6 +50,23 @@
   (funcall (go-to-buffer-running-subprocess "bash" ""))
   (vterm-evil-reposition))
 
+(defun frame-configuration-save (register)
+  "Save the current frame configuration to a register. Return a lambda that captures the register, suitable to be bound to a key combination."
+  `(lambda ()
+     (interactive)
+     (frame-configuration-to-register ,register)
+     (message "Frame configuration saved.")))
+
+(defun frame-configuration-restore (register)
+  "Restore the frame configuration from a register. Return a lambda that captures the register, suitable to be bound to a key combination."
+  `(lambda ()
+     (interactive)
+     (if (get-register ,register)
+         (progn
+           (jump-to-register ,register)
+           (message "Frame configuration restored."))
+       (message "Frame configuration does not exist. Please save it before trying to restore it."))))
+
 (defun ensure-external-binaries-are-installed (binaries)
   "Ensure a list of binaries are installed, executable and in your exec-path."
   (dolist (binary binaries)
