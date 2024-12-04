@@ -17,6 +17,12 @@
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
   (message "Killed all buffers!"))
 
+(defun buffer-mode (&optional buffer-or-name)
+  "Returns the major mode associated with a buffer.
+  If buffer-or-name is nil return current buffer's mode."
+  (buffer-local-value 'major-mode
+   (if buffer-or-name (get-buffer buffer-or-name) (current-buffer))))
+
 (defun evaluate-region ()
   (interactive)
   (when (region-active-p)
@@ -50,6 +56,11 @@
   (funcall (go-to-buffer-running-subprocess "bash" ""))
   (vterm-evil-reposition))
 
+(setq *frame-configuration-callbacks* '())
+
+(defun frame-configuration-add-callback (mode callback)
+  (add-to-list *frame-configuration-callbacks* (list mode callback)))
+
 (defun frame-configuration-save (register)
   "Save the current frame configuration to a register. Return a lambda that captures the register, suitable to be bound to a key combination."
   `(lambda ()
@@ -64,7 +75,12 @@
      (if (get-register ,register)
          (progn
            (jump-to-register ,register)
-           (message "Frame configuration restored."))
+           (dolist (item *frame-configuration-callbacks*)
+             (let ((mode (first item))
+                   (callback (nth 1 item)))
+               (if (string-equal mode (buffer-mode))
+                   (funcall callback))))
+           (message "Frame configuration restored: %s" (buffer-mode)))
        (message "Frame configuration does not exist. Please save it before trying to restore it."))))
 
 (defun ensure-external-binaries-are-installed (binaries)

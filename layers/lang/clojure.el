@@ -21,8 +21,12 @@
   (if cider--debug-mode    ;; Checks if you're entering the debugger
       (evil-insert-state)  ;; If so, turn on evil-insert-state
     (evil-normal-state)))  ;; Otherwise, turn on normal-state
-
 (add-hook 'cider--debug-mode-hook 'hook-cider-debug-toggle-insert-state)
+
+(defun hook-cider-repl-mode ()
+  (cider-switch-to-repl-buffer)
+  (evil-insert-state))
+(add-to-list '*frame-configuration-callbacks* (list "cider-repl-mode" 'hook-cider-repl-mode))
 
 (defun cider-eval-buffer-and-repl-set-ns ()
   (interactive)
