@@ -144,7 +144,9 @@
   :ensure t)
 
 (use-package flycheck
-  :ensure t)
+  :ensure t
+  :defer t
+  :hook (prog-mode . flycheck-mode))
 
 ;; rainbow-delimiters - colour matching parentheses
 (use-package rainbow-delimiters
