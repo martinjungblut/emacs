@@ -39,6 +39,11 @@
 ;; hideshow - code folding
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
+;; whenever ibuffer is used, we sort by major mode
+(add-hook 'ibuffer-mode-hook
+          (lambda ()
+            (ibuffer-do-sort-by-major-mode)))
+
 ;; evil - vim emulation
 (use-package evil
   :ensure t
