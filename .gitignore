@@ -6,3 +6,5 @@
 !layers/**
 !extra-deps
 !extra-deps/**
+
+**.elc
