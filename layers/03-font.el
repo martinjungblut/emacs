@@ -25,4 +25,4 @@
 	   (set-face-attribute 'default nil :height ,font-height)
 	   (message (format "Default font height: %d" (font-height-get))))))
 
-(apply-font-settings "DejaVu Sans Mono" 'regular 140 10)
+(apply-font-settings "DejaVu Sans Mono" 'regular 140 12)

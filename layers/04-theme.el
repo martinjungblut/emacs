@@ -2,11 +2,11 @@
   :ensure t
   :config
   (setq doom-themes-enable-bold t
-        doom-themes-enable-italic nil)
-  (load-theme 'doom-homage-white t))
+        doom-themes-enable-italic nil))
 
 (use-package modus-themes
-  :ensure t)
+  :ensure t
+  :config (load-theme 'modus-operandi-tinted t))
 
 (defun cycle-themes (&rest themes)
   (let* ((current-theme-index (-elem-index (car custom-enabled-themes) themes))
@@ -20,4 +20,4 @@
 
 (defun toggle-theme ()
   (interactive)
-  (cycle-themes 'doom-homage-white 'doom-homage-black))
+  (cycle-themes 'modus-operandi-tinted 'modus-vivendi-tinted))
