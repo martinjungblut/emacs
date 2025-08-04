@@ -25,4 +25,7 @@
 	   (set-face-attribute 'default nil :height ,font-height)
 	   (message (format "Default font height: %d" (font-height-get))))))
 
-(apply-font-settings "DejaVu Sans Mono" 'regular 140 12)
+(let ((hostname (system-name)))
+  (cond
+   ((string-equal "aura" hostname) (apply-font-settings "DejaVu Sans Mono" 'regular 105 10))
+   (t (apply-font-settings "DejaVu Sans Mono" 'regular 140 10))))
