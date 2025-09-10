@@ -27,5 +27,5 @@
 
 (let ((hostname (system-name)))
   (cond
-   ((string-equal "aura" hostname) (apply-font-settings "DejaVu Sans Mono" 'regular 105 10))
-   (t (apply-font-settings "DejaVu Sans Mono" 'regular 140 10))))
+   ((string-equal "aura" hostname) (apply-font-settings "DejaVu Sans Mono" 'regular 90 10))
+   (t (apply-font-settings "DejaVu Sans Mono" 'regular 130 10))))
