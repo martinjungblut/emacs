@@ -6,7 +6,7 @@
 
 (use-package modus-themes
   :ensure t
-  :config (load-theme 'modus-vivendi-tinted t))
+  :config (load-theme 'modus-operandi-tinted t))
 
 (defun cycle-themes (&rest themes)
   (let* ((current-theme-index (-elem-index (car custom-enabled-themes) themes))
